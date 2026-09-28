@@ -7,4 +7,5 @@
 - Сборка: `build.ps1` (Windows) или `build.sh`.
 - Подключение на сайте: Settings -> Developer Tools -> Code Injection -> Header:
   `<link rel="stylesheet" href="https://<логин>.github.io/kotiger-css/dist/custom.css">`
+- Подчёркивание заголовков H2 - одно правило на весь сайт в `src/02-heading-underline.css`: новый заголовок = новый селектор в списке.
 - Важно: файлы - обычный CSS, не LESS. Комментарии только `/* ... */`, никаких `//` и вложенных правил.

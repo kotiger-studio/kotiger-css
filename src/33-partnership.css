@@ -1,5 +1,4 @@
-/* FOR STUDIOS */
-/* Отзывы: контур по часовой стрелке от нижнего левого угла */
+/* PARTNERSHIP (kotiger.co/partnership, бывш. For Studios) */
 
 /* Заголовок "Consider us the 3D production unit..." - межстрочный интервал */
 #block-6ab27656d6b5b9850cb1c7e3 h1,
@@ -8,6 +7,7 @@
   line-height: 1.35 !important;
 }
 
+/* Отзывы: контур по часовой стрелке от нижнего левого угла при наведении */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item {
   position: relative;
 }

@@ -1,80 +1,35 @@
-/* EXTERIORS */
+/* СТРАНИЦЫ УСЛУГ
+   Exteriors, Interiors, Virtual Tours, Furniture, 3D Floor Plans, 3D Site Plans, 3D Videos, Virtual Staging.
+   Подчёркивание H2 - в 02-heading-underline.css */
 
-#block-7c233a62eb60f973ff10 h2 {line-height: 3em;}
+/* Межстрочный интервал H2 в верхнем текстовом блоке */
+#block-7c233a62eb60f973ff10 h2,   /* Exteriors */
+#block-50071c6a004b106f3b3b h2,   /* Interiors */
+#block-bbe8bd2af3b8a39686a9 h2,   /* Virtual Tours */
+#block-38f14fa57d4ca154ae88 h2,   /* Furniture */
+#block-561e01a4b498fe08c9f0 h2,   /* 3D Floor Plans */
+#block-8e8ee274b885bb8feadd h2,   /* 3D Site Plans */
+#block-97be26034e6ba2d8d03c h2,   /* 3D Videos */
+#block-b755f3cd27a9fa332f0a h2    /* Virtual Staging */
+{line-height: 3em;}
 
-section[data-section-id="5ee2141547b8eb310d00e246"]
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
+/* Текст по центру, абзацы - по левому краю */
+#collection-5ee2121754886a0b9924f07d .sqs-block-content,   /* Exteriors */
+#collection-5ee212f754886a0b99250747 .sqs-block-content,   /* Interiors */
+#collection-66196077f2543126ca46c1b0 .sqs-block-content,   /* Virtual Tours */
+#collection-61ae30098532145591b7d562 .sqs-block-content,   /* Furniture */
+#collection-5ee22ec14d924b1f3624018d .sqs-block-content,   /* 3D Floor Plans */
+#collection-67581bdcdc232c7f1cae51dd .sqs-block-content,   /* 3D Site Plans */
+#collection-67581b9b387b3872bec4639d .sqs-block-content,   /* 3D Videos */
+#collection-694bc5d7f347b14a0f0b5dff .sqs-block-content    /* Virtual Staging */
+{text-align: center;}
 
-#collection-5ee2121754886a0b9924f07d .sqs-block-content  {text-align: center;}
-#collection-5ee2121754886a0b9924f07d .sqs-block-content p {text-align: left;}
-
-/* INTERIORS */
-
-#block-50071c6a004b106f3b3b h2 {line-height: 3em;}
-
-section[data-section-id="5ee213ba5aad6b31a900167a"]
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-5ee212f754886a0b99250747 .sqs-block-content  {text-align: center;}
-
-#collection-5ee212f754886a0b99250747 .sqs-block-content p {text-align: left;}
-/* Virtual Tours */
-
-#block-bbe8bd2af3b8a39686a9 h2 {line-height: 3em;}
-
-section[data-section-id="66196077f2543126ca46c1b2"] h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-66196077f2543126ca46c1b0 .sqs-block-content  {text-align: center;}
-
-#collection-66196077f2543126ca46c1b0 .sqs-block-content p {text-align: left;}
-
-/* Furniture */
-
-#block-38f14fa57d4ca154ae88 h2 {line-height: 3em;}
-
-#collection-61ae30098532145591b7d562
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-61ae30098532145591b7d562 .sqs-block-content  {text-align: center;}
-
-#collection-61ae30098532145591b7d562 .sqs-block-content p {text-align: left;}
-
-/* 3D Floor Plans */
-
-#block-561e01a4b498fe08c9f0 h2 {line-height: 3em;}
-
-section[data-section-id="5ee22ec14d924b1f3624018f"] h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-5ee22ec14d924b1f3624018d .sqs-block-content  {text-align: center;}
-
-#collection-5ee22ec14d924b1f3624018d .sqs-block-content p {text-align: left;}
-
-/* 3D Site Plans */
-
-#block-8e8ee274b885bb8feadd h2 {line-height: 3em;}
-
-section[data-section-id="67581bdcdc232c7f1cae51df"] h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-67581bdcdc232c7f1cae51dd .sqs-block-content  {text-align: center;}
-
-#collection-67581bdcdc232c7f1cae51dd .sqs-block-content p {text-align: left;}
-
-/* 3D Videos */
-
-#block-97be26034e6ba2d8d03c h2 {line-height: 3em;}
-
-section[data-section-id="67581b9b387b3872bec4639f"] h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-67581b9b387b3872bec4639d .sqs-block-content  {text-align: center;}
-
-#collection-67581b9b387b3872bec4639d .sqs-block-content p {text-align: left;}
-
-/* Virtual Staging */
-
-#block-b755f3cd27a9fa332f0a h2 {line-height: 3em;}
-
-section[data-section-id="694bc5d7f347b14a0f0b5e01"] h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
-
-#collection-694bc5d7f347b14a0f0b5dff .sqs-block-content  {text-align: center;}
-
-#collection-694bc5d7f347b14a0f0b5dff .sqs-block-content p {text-align: left;}
+#collection-5ee2121754886a0b9924f07d .sqs-block-content p,
+#collection-5ee212f754886a0b99250747 .sqs-block-content p,
+#collection-66196077f2543126ca46c1b0 .sqs-block-content p,
+#collection-61ae30098532145591b7d562 .sqs-block-content p,
+#collection-5ee22ec14d924b1f3624018d .sqs-block-content p,
+#collection-67581bdcdc232c7f1cae51dd .sqs-block-content p,
+#collection-67581b9b387b3872bec4639d .sqs-block-content p,
+#collection-694bc5d7f347b14a0f0b5dff .sqs-block-content p
+{text-align: left;}

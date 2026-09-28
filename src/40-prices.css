@@ -1,71 +1,26 @@
-/* PRICES - EXTERIORS */
+/* ЦЕНЫ: Exteriors, Interiors, Floor Plans, Site Plans, Virtual Tour, 3D Videos
+   Подчёркивание H2 - в 02-heading-underline.css */
 
-/* H2 Headings underline and size */
-#block-d9ff30ee2c189d695b30
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline; line-height: 3em;}
+/* Межстрочный интервал H2 */
+#block-d9ff30ee2c189d695b30 h2,   /* Exteriors */
+#block-81152a754d0413904f53 h2,   /* Interiors */
+#block-da68ae9e4cfcdef1a99f h2,   /* Floor Plans */
+#block-1aa3bb46261393b9efc9 h2,   /* Site Plans */
+#block-20049e4ccf13e08e94c0 h2,   /* Virtual Tour */
+#block-3d68d5922a35c95683ee h2    /* 3D Videos */
+{line-height: 3em;}
 
-/* Top text - center all */
-#block-d9ff30ee2c189d695b30 .sqs-block-content {text-align: center;}
-
-/* Top text - align paragraph left */
-#block-d9ff30ee2c189d695b30 .sqs-block-content p {text-align: left;}
-
-/* PRICES - INTERIORS */
-
-/* H2 Headings underline and size */
-#block-81152a754d0413904f53
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline; line-height: 3em;}
-
-/* Top text - center all */
-#block-81152a754d0413904f53 .sqs-block-content {text-align: center;}
-
-/* Top text - align paragraph left */
-#block-81152a754d0413904f53 .sqs-block-content p {text-align: left;}
-
-/* PRICES - FLOOR PLANS */
-
-/* H2 Headings underline and size */
-#block-da68ae9e4cfcdef1a99f
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline; line-height: 3em;}
-
-/* Top text - center all */
-#block-da68ae9e4cfcdef1a99f .sqs-block-content {text-align: center;}
-
-/* Top text - align paragraph left */
-#block-da68ae9e4cfcdef1a99f .sqs-block-content p {text-align: left;}
-
-/* PRICES - SITE PLANS */
-
-/* H2 Headings underline and size */
-#block-1aa3bb46261393b9efc9
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline; line-height: 3em;}
-
-/* Top text - center all */
-#block-1aa3bb46261393b9efc9 .sqs-block-content {text-align: center;}
-
-/* Top text - align paragraph left */
-#block-1aa3bb46261393b9efc9 .sqs-block-content p {text-align: left;}
-
-/* PRICES - VIRTUAL TOUR */
-
-/* H2 Headings underline and size */
-#block-20049e4ccf13e08e94c0
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline; line-height: 3em;}
-
-/* Top text - center all */
-#block-20049e4ccf13e08e94c0 .sqs-block-content {text-align: center;}
-
-/* Top text - align paragraph left */
-#block-20049e4ccf13e08e94c0 .sqs-block-content p {text-align: left;}
-
-/* PRICES - 3D VIDEOS */
-
-/* H2 Headings underline and size */
-#block-3d68d5922a35c95683ee
-h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline; line-height: 3em;}
-
-/* Top text - center all */
+/* Верхний текст: всё по центру, абзацы - по левому краю */
+#block-d9ff30ee2c189d695b30 .sqs-block-content,
+#block-81152a754d0413904f53 .sqs-block-content,
+#block-da68ae9e4cfcdef1a99f .sqs-block-content,
+#block-1aa3bb46261393b9efc9 .sqs-block-content,
+#block-20049e4ccf13e08e94c0 .sqs-block-content,
 #block-3d68d5922a35c95683ee .sqs-block-content {text-align: center;}
 
-/* Top text - align paragraph left */
+#block-d9ff30ee2c189d695b30 .sqs-block-content p,
+#block-81152a754d0413904f53 .sqs-block-content p,
+#block-da68ae9e4cfcdef1a99f .sqs-block-content p,
+#block-1aa3bb46261393b9efc9 .sqs-block-content p,
+#block-20049e4ccf13e08e94c0 .sqs-block-content p,
 #block-3d68d5922a35c95683ee .sqs-block-content p {text-align: left;}
