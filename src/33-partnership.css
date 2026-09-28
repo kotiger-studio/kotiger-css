@@ -63,13 +63,16 @@ section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::after {
 
 /* Анимированная стрелка вниз (Code Block, ссылка на #consider-us)
    HTML: <a class="kt-scroll-cue" href="#consider-us" aria-label="Scroll to next section"><svg viewBox="0 0 24 34" aria-hidden="true"><path d="M3 3l9 7 9-7"/><path d="M3 13l9 7 9-7"/><path d="M3 23l9 7 9-7"/></svg></a>
-   Уголки по очереди загораются сверху вниз; при наведении - быстрее. */
+   Уголки по очереди загораются сверху вниз; при наведении - жёлтые.
+   Размер и цвет продублированы инлайном в коде блока, т.к. редактор Squarespace не грузит этот CSS. */
 .kt-scroll-cue {display: block; width: 40px; margin: 0 auto; padding: 8px 0; color: #000;}
 .kt-scroll-cue svg {display: block; width: 100%; height: auto; overflow: visible;}
 .kt-scroll-cue path {fill: none; stroke: currentColor; stroke-width: 4; stroke-linejoin: miter; stroke-linecap: butt; opacity: .12; animation: kt-cue 1.8s ease-in-out infinite;}
 .kt-scroll-cue path:nth-child(2) {animation-delay: .2s;}
 .kt-scroll-cue path:nth-child(3) {animation-delay: .4s;}
-.kt-scroll-cue:hover path {animation-duration: 1.1s;}
+.kt-scroll-cue {transition: color .3s ease;}
+/* При наведении - жёлтый. !important нужен: в коде блока цвет задан инлайном (для редактора) */
+.kt-scroll-cue:hover {color: #fbdc90 !important;}
 @keyframes kt-cue {0%, 100% {opacity: .12;} 35% {opacity: 1;}}
 
 /* Если в системе посетителя отключена анимация - статичный градиент */
