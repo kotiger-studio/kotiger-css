@@ -256,9 +256,9 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
   line-height: 1.35 !important;
 }
 
-/* Больше отступ между заголовком и подзаголовком (было 28px): "What you can count on", "Let's talk about your next project" */
+/* Больше отступ между заголовком и подзаголовком (было 28px, стало ~48px на десктопе): "What you can count on", "Let's talk about your next project" */
 #block-a40dac33d2905d1c6880 h3,
-#block-f9a27d08871a3aa1acab h3 {margin-top: 1.6em;}
+#block-f9a27d08871a3aa1acab h3 {margin-top: 2.12em;}
 
 /* Полупрозрачные блоки */
 #block-yui_3_17_2_1_1790612220342_11613,
