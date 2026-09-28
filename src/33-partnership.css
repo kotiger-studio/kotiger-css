@@ -7,6 +7,9 @@
   line-height: 1.35 !important;
 }
 
+/* "What you can count on": больше отступ между заголовком и подзаголовком (было 28px) */
+#block-a40dac33d2905d1c6880 h3 {margin-top: 1.6em;}
+
 /* Полупрозрачные блоки */
 #block-yui_3_17_2_1_1790612220342_11613,
 #block-b307f076643edcdc7717 {opacity: .5;}
