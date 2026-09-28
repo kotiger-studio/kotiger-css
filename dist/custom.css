@@ -7,8 +7,6 @@
   --underline-color: Gainsboro;
   /* подчёркивание заголовков маркером (стандартное) */
   --underline: linear-gradient(to top, transparent 5%, var(--underline-color) 5%, var(--underline-color) 35%, transparent 35%);
-  /* вариант повыше - How We Work */
-  --underline-mid: linear-gradient(to top, transparent 25%, var(--underline-color) 25%, var(--underline-color) 48%, transparent 48%);
 }
 
 /* ===== 01-header.css ===== */
@@ -45,7 +43,6 @@ section[data-section-id="619cf516dd7fb34abd5f219a"] h2,          /* Experience *
 section[data-section-id="5ee2141547b8eb310d00e246"] h2,          /* Exteriors */
 section[data-section-id="5ee213ba5aad6b31a900167a"] h2,          /* Interiors */
 section[data-section-id="66196077f2543126ca46c1b2"] h2,          /* Virtual Tours */
-#collection-61ae30098532145591b7d562 h2,                        /* Furniture */
 section[data-section-id="5ee22ec14d924b1f3624018f"] h2,          /* 3D Floor Plans */
 section[data-section-id="67581bdcdc232c7f1cae51df"] h2,          /* 3D Site Plans */
 section[data-section-id="67581b9b387b3872bec4639f"] h2,          /* 3D Videos */
@@ -63,11 +60,6 @@ section[data-section-id="694bc5d7f347b14a0f0b5e01"] h2,          /* Virtual Stag
 #block-20049e4ccf13e08e94c0 h2,                                 /* Prices - Virtual Tour */
 #block-3d68d5922a35c95683ee h2                                  /* Prices - 3D Videos */
 {background: var(--underline); display: inline;}
-
-/* How We Work - подчёркивание повыше */
-#block-yui_3_17_2_1_1608135729553_13113 h2:first-of-type,
-#block-5fe49023a6a3793fe0b93b7a h2
-{background: var(--underline-mid); display: inline;}
 
 /* Home, блок Services - серое подчёркивание */
 section[data-section-id="619e70ad95d7e741602de456"] h2
@@ -144,14 +136,13 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 
 /* ===== 20-service-pages.css ===== */
 /* СТРАНИЦЫ УСЛУГ
-   Exteriors, Interiors, Virtual Tours, Furniture, 3D Floor Plans, 3D Site Plans, 3D Videos, Virtual Staging.
+   Exteriors, Interiors, Virtual Tours, 3D Floor Plans, 3D Site Plans, 3D Videos, Virtual Staging.
    Подчёркивание H2 - в 02-heading-underline.css */
 
 /* Межстрочный интервал H2 в верхнем текстовом блоке */
 #block-7c233a62eb60f973ff10 h2,   /* Exteriors */
 #block-50071c6a004b106f3b3b h2,   /* Interiors */
 #block-bbe8bd2af3b8a39686a9 h2,   /* Virtual Tours */
-#block-38f14fa57d4ca154ae88 h2,   /* Furniture */
 #block-561e01a4b498fe08c9f0 h2,   /* 3D Floor Plans */
 #block-8e8ee274b885bb8feadd h2,   /* 3D Site Plans */
 #block-97be26034e6ba2d8d03c h2,   /* 3D Videos */
@@ -162,7 +153,6 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 #collection-5ee2121754886a0b9924f07d .sqs-block-content,   /* Exteriors */
 #collection-5ee212f754886a0b99250747 .sqs-block-content,   /* Interiors */
 #collection-66196077f2543126ca46c1b0 .sqs-block-content,   /* Virtual Tours */
-#collection-61ae30098532145591b7d562 .sqs-block-content,   /* Furniture */
 #collection-5ee22ec14d924b1f3624018d .sqs-block-content,   /* 3D Floor Plans */
 #collection-67581bdcdc232c7f1cae51dd .sqs-block-content,   /* 3D Site Plans */
 #collection-67581b9b387b3872bec4639d .sqs-block-content,   /* 3D Videos */
@@ -172,7 +162,6 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 #collection-5ee2121754886a0b9924f07d .sqs-block-content p,
 #collection-5ee212f754886a0b99250747 .sqs-block-content p,
 #collection-66196077f2543126ca46c1b0 .sqs-block-content p,
-#collection-61ae30098532145591b7d562 .sqs-block-content p,
 #collection-5ee22ec14d924b1f3624018d .sqs-block-content p,
 #collection-67581bdcdc232c7f1cae51dd .sqs-block-content p,
 #collection-67581b9b387b3872bec4639d .sqs-block-content p,
@@ -257,22 +246,6 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 #block-yui_3_17_2_1_1688555926909_4581 h4,
 #block-yui_3_17_2_1_1686673826196_4855 .sqs-block-content {font-family: Arial;}
 
-/* ===== 32-how-we-work.css ===== */
-/* HOW WE WORK */
-
-section[data-section-id="5fd8ac56998a6a2ed55031f8"] .sqs-block-spacer {padding: 0px;}
-
-#block-yui_3_17_2_1_1608135729553_13113 .sqs-block-content,
-#block-5fe49023a6a3793fe0b93b7a .sqs-block-content {text-align: center;}
-
-/* Отступы картинок */
-#block-yui_3_17_2_1_1608812062327_21907,
-#block-yui_3_17_2_1_1608812062327_17003,
-#block-yui_3_17_2_1_1608812062327_13600 {padding: 3px}
-
-#block-yui_3_17_2_1_1609274672107_16466,
-#block-yui_3_17_2_1_1609274672107_20179 {padding: 10px}
-
 /* ===== 33-partnership.css ===== */
 /* PARTNERSHIP (kotiger.co/partnership, бывш. For Studios) */
 
@@ -337,6 +310,25 @@ section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::after {
     width 0.25s ease-out 0.75s;
 }
 
+/* Анимированная стрелка вниз (Code Block, ссылка на #consider-us)
+   HTML: <a class="kt-scroll-cue" href="#consider-us" aria-label="Scroll to next section"><svg viewBox="0 0 24 34" aria-hidden="true"><path d="M3 3l9 7 9-7"/><path d="M3 13l9 7 9-7"/><path d="M3 23l9 7 9-7"/></svg></a>
+   Уголки по очереди загораются сверху вниз; при наведении - быстрее. */
+.kt-scroll-cue {display: block; width: 40px; margin: 0 auto; padding: 8px 0; color: #000;}
+.kt-scroll-cue svg {display: block; width: 100%; height: auto; overflow: visible;}
+.kt-scroll-cue path {fill: none; stroke: currentColor; stroke-width: 4; stroke-linejoin: miter; stroke-linecap: butt; opacity: .12; animation: kt-cue 1.8s ease-in-out infinite;}
+.kt-scroll-cue path:nth-child(2) {animation-delay: .2s;}
+.kt-scroll-cue path:nth-child(3) {animation-delay: .4s;}
+.kt-scroll-cue:hover path {animation-duration: 1.1s;}
+@keyframes kt-cue {0%, 100% {opacity: .12;} 35% {opacity: 1;}}
+
+/* Если в системе посетителя отключена анимация - статичный градиент */
+@media (prefers-reduced-motion: reduce) {
+  .kt-scroll-cue path {animation: none;}
+  .kt-scroll-cue path:nth-child(1) {opacity: .15;}
+  .kt-scroll-cue path:nth-child(2) {opacity: .45;}
+  .kt-scroll-cue path:nth-child(3) {opacity: 1;}
+}
+
 /* ===== 34-contact.css ===== */
 /* CONTACT US */
 
@@ -381,10 +373,3 @@ section[data-section-id="5ff3143edac66e1e1621b023"] .button {padding: 1em 1.5em}
 #block-53a993873fc9c4f7edc4 h2:first-of-type {text-align: center;}
 #block-53a993873fc9c4f7edc4 .sqs-block-content {text-align: center;}
 #block-53a993873fc9c4f7edc4 .sqs-block-content p {text-align: left;}
-
-/* ===== 51-blog.css ===== */
-/* BLOG */
-
-#collection-5f03330b38f0572cbac0248c .content-wrapper{width: 75%;}
-
-@media screen and (max-width: 1000px) {#collection-5f03330b38f0572cbac0248c .content-wrapper {width: 100%;}}

@@ -10,7 +10,6 @@ section[data-section-id="619cf516dd7fb34abd5f219a"] h2,          /* Experience *
 section[data-section-id="5ee2141547b8eb310d00e246"] h2,          /* Exteriors */
 section[data-section-id="5ee213ba5aad6b31a900167a"] h2,          /* Interiors */
 section[data-section-id="66196077f2543126ca46c1b2"] h2,          /* Virtual Tours */
-#collection-61ae30098532145591b7d562 h2,                        /* Furniture */
 section[data-section-id="5ee22ec14d924b1f3624018f"] h2,          /* 3D Floor Plans */
 section[data-section-id="67581bdcdc232c7f1cae51df"] h2,          /* 3D Site Plans */
 section[data-section-id="67581b9b387b3872bec4639f"] h2,          /* 3D Videos */
@@ -28,11 +27,6 @@ section[data-section-id="694bc5d7f347b14a0f0b5e01"] h2,          /* Virtual Stag
 #block-20049e4ccf13e08e94c0 h2,                                 /* Prices - Virtual Tour */
 #block-3d68d5922a35c95683ee h2                                  /* Prices - 3D Videos */
 {background: var(--underline); display: inline;}
-
-/* How We Work - подчёркивание повыше */
-#block-yui_3_17_2_1_1608135729553_13113 h2:first-of-type,
-#block-5fe49023a6a3793fe0b93b7a h2
-{background: var(--underline-mid); display: inline;}
 
 /* Home, блок Services - серое подчёркивание */
 section[data-section-id="619e70ad95d7e741602de456"] h2

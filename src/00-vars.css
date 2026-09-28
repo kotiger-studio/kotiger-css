@@ -4,6 +4,4 @@
   --underline-color: Gainsboro;
   /* подчёркивание заголовков маркером (стандартное) */
   --underline: linear-gradient(to top, transparent 5%, var(--underline-color) 5%, var(--underline-color) 35%, transparent 35%);
-  /* вариант повыше - How We Work */
-  --underline-mid: linear-gradient(to top, transparent 25%, var(--underline-color) 25%, var(--underline-color) 48%, transparent 48%);
 }

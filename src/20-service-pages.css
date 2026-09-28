@@ -1,12 +1,11 @@
 /* СТРАНИЦЫ УСЛУГ
-   Exteriors, Interiors, Virtual Tours, Furniture, 3D Floor Plans, 3D Site Plans, 3D Videos, Virtual Staging.
+   Exteriors, Interiors, Virtual Tours, 3D Floor Plans, 3D Site Plans, 3D Videos, Virtual Staging.
    Подчёркивание H2 - в 02-heading-underline.css */
 
 /* Межстрочный интервал H2 в верхнем текстовом блоке */
 #block-7c233a62eb60f973ff10 h2,   /* Exteriors */
 #block-50071c6a004b106f3b3b h2,   /* Interiors */
 #block-bbe8bd2af3b8a39686a9 h2,   /* Virtual Tours */
-#block-38f14fa57d4ca154ae88 h2,   /* Furniture */
 #block-561e01a4b498fe08c9f0 h2,   /* 3D Floor Plans */
 #block-8e8ee274b885bb8feadd h2,   /* 3D Site Plans */
 #block-97be26034e6ba2d8d03c h2,   /* 3D Videos */
@@ -17,7 +16,6 @@
 #collection-5ee2121754886a0b9924f07d .sqs-block-content,   /* Exteriors */
 #collection-5ee212f754886a0b99250747 .sqs-block-content,   /* Interiors */
 #collection-66196077f2543126ca46c1b0 .sqs-block-content,   /* Virtual Tours */
-#collection-61ae30098532145591b7d562 .sqs-block-content,   /* Furniture */
 #collection-5ee22ec14d924b1f3624018d .sqs-block-content,   /* 3D Floor Plans */
 #collection-67581bdcdc232c7f1cae51dd .sqs-block-content,   /* 3D Site Plans */
 #collection-67581b9b387b3872bec4639d .sqs-block-content,   /* 3D Videos */
@@ -27,7 +25,6 @@
 #collection-5ee2121754886a0b9924f07d .sqs-block-content p,
 #collection-5ee212f754886a0b99250747 .sqs-block-content p,
 #collection-66196077f2543126ca46c1b0 .sqs-block-content p,
-#collection-61ae30098532145591b7d562 .sqs-block-content p,
 #collection-5ee22ec14d924b1f3624018d .sqs-block-content p,
 #collection-67581bdcdc232c7f1cae51dd .sqs-block-content p,
 #collection-67581b9b387b3872bec4639d .sqs-block-content p,
