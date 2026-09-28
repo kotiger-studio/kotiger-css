@@ -356,6 +356,9 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible 
   .kt-scroll-cue path:nth-child(3) {opacity: 1;}
 }
 
+/* Услуги: белый фон карточек (фон карточки включён в Squarespace, цвет задаём здесь) */
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
+
 /* ===== 34-contact.css ===== */
 /* CONTACT US */
 
