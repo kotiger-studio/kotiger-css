@@ -322,6 +322,8 @@ section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::after {
 .kt-scroll-cue {transition: color .3s ease;}
 /* При наведении - жёлтый. !important нужен: в коде блока цвет задан инлайном (для редактора) */
 .kt-scroll-cue:hover {color: #fbdc90 !important;}
+/* Тёмные секции: в коде блока класс kt-scroll-cue kt-scroll-cue--dark и color:#fff, при наведении - насыщенный жёлтый */
+.kt-scroll-cue.kt-scroll-cue--dark:hover {color: #efc55a !important;}
 @keyframes kt-cue {0%, 100% {opacity: .12;} 35% {opacity: 1;}}
 
 /* Если в системе посетителя отключена анимация - статичный градиент */
