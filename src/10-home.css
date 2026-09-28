@@ -1,0 +1,102 @@
+/* HOME-Start */
+
+/* Hero image */
+section[data-section-id="619ceb63d909022f0418e12f"] {margin-top: 50px}
+
+/* image brightness */
+#collection-619ceb63d909022f0418e12d .sqs-block-image .image-overlay, .sqs-block-image .sqs-image-content::after, .sqs-block-image .image-block-wrapper:after {opacity: 0;}
+
+@media screen and (min-width: 1920px) {section[data-section-id="619ceb63d909022f0418e12f"] h1 {font-size: 6rem}}
+
+section[data-section-id="619ceb63d909022f0418e12f"]  {
+-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+z-index: 2;}
+
+section[data-section-id="619ceb63d909022f0418e12f"] h1 {
+  margin: 0px;
+  padding-top: 0.4em;
+  padding-bottom: 0.5em;
+  text-shadow: rgba(0,0,0,0.5) 0.01em 0.1em 0.35em}
+
+section[data-section-id="619ceb63d909022f0418e12f"] .content {padding-bottom: ;}
+
+section[data-section-id="619ceb63d909022f0418e12f"] p {margin: 0px; padding-bottom: 1em; padding-left: 20%;padding-right: 20%; text-shadow: rgba(0,0,0,0.25) 0.15em 0.15em 0.25em;}
+
+section[data-section-id="619ceb63d909022f0418e12f"] {
+  overflow: hidden;
+}
+
+section[data-section-id="619ceb63d909022f0418e12f"] .section-background {
+  filter: blur(8px);
+  transform: scale(1.1);
+}
+
+/* SERVICES */
+
+section[data-section-id="619e70ad95d7e741602de456"] .content-wrapper {padding-top: 0px !important; padding-bottom: 0px !important;}
+
+section[data-section-id="619e70ad95d7e741602de456"]
+h2 {
+background: linear-gradient(to top,  transparent 5%, gray 5%, gray 35%, transparent 35%);
+display: inline; }
+
+section[data-section-id="619ceb63d909022f0418e133"] .content-wrapper {padding-top: 0px !important;}
+
+/* image, text & button margin/padding */
+
+section[data-section-id="619ceb63d909022f0418e133"] .image-block { padding: 3px } 
+
+section[data-section-id="619ceb63d909022f0418e133"] .image-subtitle-wrapper .image-subtitle { margin-top: 0px !important; }
+
+section[data-section-id="619ceb63d909022f0418e133"] .image-button-wrapper .image-button { margin-top: 0.75em !important; } 
+
+/* Image zoom */
+
+section[data-section-id="619ceb63d909022f0418e133"] .intrinsic {overflow: hidden;} 
+
+section[data-section-id="619ceb63d909022f0418e133"] .sqs-block-image .design-layout-stack img {transition: transform .5s, filter .5s ease-in-out; transform-origin: center center;}
+
+section[data-section-id="619ceb63d909022f0418e133"] .sqs-block-image .design-layout-stack .intrinsic:hover img {transform: scale(1.05); filter: brightness(105%);}
+
+/* button padding */
+#block-49709f6a5e8b4241da0c {padding-top: 12px; padding-bottom: 0px;}
+
+#block-49709f6a5e8b4241da0c a { font-size: .6em !important;}
+
+#block-510519520034a04ac6cf {padding-top: 12px; padding-bottom: 0px;}
+
+#block-510519520034a04ac6cf a {font-size: .6em !important;}
+
+#block-c70b751c365c6c6e7475 {padding-top: 12px; padding-bottom: 0px;}
+
+#block-c70b751c365c6c6e7475 a { font-size: .6em !important;}
+
+/* EXPERIENCE */
+
+section[data-section-id="619cf516dd7fb34abd5f219a"]
+h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
+
+#block-a9e7e92c2a272153a45e  .sqs-block-content p {text-align: left;}
+
+#block-a9e7e92c2a272153a45e .sqs-block-content blockquote {
+ text-align: left;
+}
+
+/* TESTIMONIAL */
+
+section[data-section-id="619ceb63d909022f0418e137"] .content {padding-top: 4rem; padding-bottom: 4rem; padding-left: 6rem; padding-right: 6rem;   background: white; -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05);
+-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05);
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05) }
+
+#block-a9e7e92c2a272153a45e
+h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
+
+@media screen and (max-width: 1000px) {section[data-section-id="619ceb63d909022f0418e137"] .content {padding-top: 1.5rem; padding-bottom: 1.5rem; padding-left: 2rem; padding-right: 2em;}}
+
+/* TELL US ABOUT YOUR PROJECT */
+
+#block-d4c4aded6606b4ea405f h2 {background: linear-gradient(to top,  transparent 5%, var(--unerline-color) 5%, var(--unerline-color) 35%, transparent 35%); display: inline;}
+
+/* HOME-End */

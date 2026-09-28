@@ -1,0 +1,62 @@
+/* FOR STUDIOS */
+/* Отзывы: контур по часовой стрелке от нижнего левого угла */
+
+/* Заголовок "Consider us the 3D production unit..." - межстрочный интервал */
+#block-6ab27656d6b5b9850cb1c7e3 h1,
+#block-6ab27656d6b5b9850cb1c7e3 h2,
+#block-6ab27656d6b5b9850cb1c7e3 h3 {
+  line-height: 1.35 !important;
+}
+
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item {
+  position: relative;
+}
+
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::before,
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Левая сторона + верх: старт из нижнего левого угла */
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::before {
+  bottom: 0;
+  left: 0;
+}
+
+/* Правая сторона + низ: старт из верхнего правого угла */
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::after {
+  top: 0;
+  right: 0;
+}
+
+/* 1-2: вверх по левой стороне, затем вправо по верху */
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::before {
+  width: 100%;
+  height: 100%;
+  border-left-color: #FBE38E;
+  border-top-color: #FBE38E;
+  transition:
+    height 0.25s ease-out,
+    border-top-color 0s 0.25s,
+    width 0.25s ease-out 0.25s;
+}
+
+/* 3-4: вниз по правой стороне, затем влево по низу */
+section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::after {
+  width: 100%;
+  height: 100%;
+  border-right-color: #FBE38E;
+  border-bottom-color: #FBE38E;
+  transition:
+    border-right-color 0s 0.5s,
+    height 0.25s ease-out 0.5s,
+    border-bottom-color 0s 0.75s,
+    width 0.25s ease-out 0.75s;
+}
