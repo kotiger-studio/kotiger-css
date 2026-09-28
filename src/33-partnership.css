@@ -7,6 +7,10 @@
   line-height: 1.35 !important;
 }
 
+/* Полупрозрачные блоки */
+#block-yui_3_17_2_1_1790612220342_11613,
+#block-b307f076643edcdc7717 {opacity: .5;}
+
 /* Карточки отзывов и услуг: жёлтый контур по часовой стрелке от нижнего левого угла при наведении */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item,
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item {
