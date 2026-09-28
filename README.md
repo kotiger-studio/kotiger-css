@@ -8,6 +8,6 @@
 - Подключение на сайте: Settings -> Developer Tools -> Code Injection -> Header:
   `<link rel="stylesheet" href="https://<логин>.github.io/kotiger-css/dist/custom.css">`
 - Подчёркивание заголовков H2 - одно правило на весь сайт в `src/02-heading-underline.css`: новый заголовок = новый селектор в списке.
-- `js/site.js` - скрипты сайта (сейчас: клик по карточкам услуг на /partnership). Подключение: Code Injection -> Footer:
+- `js/site.js` - скрипты сайта (сейчас: карточки услуг на /partnership - ссылки). Подключение: Code Injection -> Footer:
   `<script src="https://kotiger-studio.github.io/kotiger-css/js/site.js" defer></script>`
 - Важно: файлы - обычный CSS, не LESS. Комментарии только `/* ... */`, никаких `//` и вложенных правил.

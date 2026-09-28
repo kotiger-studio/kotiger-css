@@ -317,15 +317,20 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after {
     width 0.25s ease-out 0.75s;
 }
 
-/* Услуги: у карточек нет внутренних отступов, поэтому контур выносим наружу на 10px (в зазор между карточками) */
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before {bottom: -10px; left: -10px;}
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after {top: -10px; right: -10px;}
+/* Услуги: у карточек нет внутренних отступов, поэтому контур выносим наружу ровно на толщину рамки (6px) - вплотную к картинке */
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before {bottom: -6px; left: -6px;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after {top: -6px; right: -6px;}
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::before,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after {width: calc(100% + 20px); height: calc(100% + 20px);}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after {width: calc(100% + 12px); height: calc(100% + 12px);}
 
-/* Карточки услуг кликабельны (открывают страницу услуги в новой вкладке - см. js/site.js) */
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item {cursor: pointer;}
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:focus-visible {outline: 2px solid #FBE38E; outline-offset: 4px;}
+/* Услуги: приближение картинки при наведении - как в блоке услуг на главной */
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item-media-inner {overflow: hidden;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item-media-inner img {transition: transform .5s, filter .5s ease-in-out; transform-origin: center center;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover .list-item-media-inner img {transform: scale(1.05); filter: brightness(105%);}
+
+/* Услуги: вся карточка - ссылка. Ссылку-подложку вставляет js/site.js */
+section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link {position: absolute; inset: 0; z-index: 3;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible {outline: 2px solid #FBE38E; outline-offset: 8px;}
 
 /* Анимированная стрелка вниз (Code Block, ссылка на #consider-us)
    HTML: <a class="kt-scroll-cue" href="#consider-us" aria-label="Scroll to next section" style="display:block;width:40px;margin:0 auto;color:#000"><svg viewBox="0 0 24 34" width="40" height="57" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M3 3l9 7 9-7" opacity="0.15"/><path d="M3 13l9 7 9-7" opacity="0.45"/><path d="M3 23l9 7 9-7"/></svg></a>
