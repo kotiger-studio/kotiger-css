@@ -91,31 +91,31 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover .list-item-
 section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link {position: absolute; inset: 0; z-index: 3;}
 section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible {outline: 2px solid #FBE38E; outline-offset: 8px;}
 
-/* Анимированная стрелка вниз (Code Block, ссылка на #consider-us)
-   HTML: <a class="kt-scroll-cue" href="#consider-us" aria-label="Scroll to next section" style="display:block;width:40px;margin:0 auto;color:#000"><svg viewBox="0 0 24 34" width="40" height="57" fill="none" stroke="currentColor" stroke-width="4" aria-hidden="true"><path d="M3 3l9 7 9-7" opacity="0.15"/><path d="M3 13l9 7 9-7" opacity="0.45"/><path d="M3 23l9 7 9-7"/></svg></a>
-   Уголки по очереди загораются сверху вниз; при наведении - жёлтые.
-   Размер и цвет продублированы инлайном в коде блока, т.к. редактор Squarespace не грузит этот CSS. */
-.kt-scroll-cue {display: block; width: 40px; margin: 0 auto; padding: 8px 0; color: #4d4d4d;}
+/* Анимированная стрелка вниз (Code Block): три тонких шеврона, "бегущий свет" сверху вниз, при наведении - жёлтый.
+   HTML светлый фон:
+   <a class="kt-scroll-cue" href="#consider-us" aria-label="Scroll to next section" style="display:block;width:40px;margin:0 auto;color:#4d4d4d"><svg viewBox="0 0 24 34" width="40" height="57" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l9 7 9-7"/><path d="M3 13l9 7 9-7"/><path d="M3 23l9 7 9-7"/></svg></a>
+   HTML тёмный фон: класс "kt-scroll-cue kt-scroll-cue--dark" и color:#fff.
+   Размер, цвет и толщина продублированы в коде блока, т.к. редактор Squarespace не грузит этот CSS. */
+.kt-scroll-cue {display: block; width: 40px; margin: 0 auto; padding: 8px 0; color: #4d4d4d; transition: color .3s ease;}
 .kt-scroll-cue svg {display: block; width: 100%; height: auto; overflow: visible;}
-.kt-scroll-cue path {fill: none; stroke: currentColor; stroke-width: 4; stroke-linejoin: miter; stroke-linecap: butt; opacity: .12; animation: kt-cue 1.8s ease-in-out infinite;}
-.kt-scroll-cue path:nth-child(2) {animation-delay: .2s;}
-.kt-scroll-cue path:nth-child(3) {animation-delay: .4s;}
-.kt-scroll-cue {transition: color .3s ease;}
-/* Светлый фон: не чисто чёрный, а 70% (#4d4d4d). !important перебивает color:#000 из кода блока */
-.kt-scroll-cue:not(.kt-scroll-cue--dark) {color: #4d4d4d !important;}
-/* При наведении - жёлтый. !important нужен: в коде блока цвет задан инлайном (для редактора) */
-.kt-scroll-cue:hover {color: #fbdc90 !important;}
-/* Тёмные секции: в коде блока класс kt-scroll-cue kt-scroll-cue--dark и color:#fff, при наведении - насыщенный жёлтый */
-.kt-scroll-cue.kt-scroll-cue--dark:hover {color: #efc55a !important;}
-@keyframes kt-cue {0%, 100% {opacity: .12;} 35% {opacity: 1;}}
+.kt-scroll-cue path {fill: none; stroke: currentColor; stroke-width: 1.2; stroke-linecap: round; stroke-linejoin: round; opacity: .2; animation: kt-cue 1.5s ease-in-out infinite;}
+.kt-scroll-cue path:nth-child(2) {animation-delay: .25s;}
+.kt-scroll-cue path:nth-child(3) {animation-delay: .5s;}
+@keyframes kt-cue {0%, 100% {opacity: .2;} 50% {opacity: 1;}}
 
-/* Если в системе посетителя отключена анимация - статичный градиент */
+/* Цвета. !important перебивает цвет, заданный в коде блока */
+.kt-scroll-cue:not(.kt-scroll-cue--dark) {color: #4d4d4d !important;}   /* светлый фон: 70% чёрного */
+.kt-scroll-cue.kt-scroll-cue--dark {color: #fff !important;}             /* тёмный фон */
+.kt-scroll-cue:hover,
+.kt-scroll-cue:focus-visible {color: #F9D77E !important;}
+.kt-scroll-cue.kt-scroll-cue--dark:hover,
+.kt-scroll-cue.kt-scroll-cue--dark:focus-visible {color: #efc55a !important;}
+
+/* Если в системе посетителя отключена анимация - все шевроны видны полностью */
 @media (prefers-reduced-motion: reduce) {
-  .kt-scroll-cue path {animation: none;}
-  .kt-scroll-cue path:nth-child(1) {opacity: .15;}
-  .kt-scroll-cue path:nth-child(2) {opacity: .45;}
-  .kt-scroll-cue path:nth-child(3) {opacity: 1;}
+  .kt-scroll-cue path {animation: none; opacity: 1;}
 }
+
 
 /* Услуги: белый фон карточек (фон карточки включён в Squarespace, цвет задаём здесь) */
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
