@@ -119,3 +119,21 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible 
 
 /* Услуги: белый фон карточек (фон карточки включён в Squarespace, цвет задаём здесь) */
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
+
+/* Отзывы (десктопная и мобильная секции List после якоря #what-our-partners-say):
+   подпись "имя - должность - город - Partnership" прижата к низу карточки,
+   чтобы низ всех трёх карточек был на одной линии без пробелов-распорок в тексте */
+section#what-our-partners-say ~ section.user-items-list-section .list-item {
+  display: flex;
+  flex-direction: column;
+}
+section#what-our-partners-say ~ section.user-items-list-section .list-item-content,
+section#what-our-partners-say ~ section.user-items-list-section .list-item-content__text-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+section#what-our-partners-say ~ section.user-items-list-section .list-item-content__description {
+  margin-top: auto !important; /* перебивает margin-top Squarespace */
+  padding-top: 1.5em;
+}
