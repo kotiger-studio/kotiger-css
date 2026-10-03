@@ -384,6 +384,11 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
 }
 section#what-our-partners-say ~ section.user-items-list-section .list-item-content__description {
   margin-top: auto !important; /* перебивает margin-top Squarespace */
+  /* Squarespace задаёт описанию margin: 0 auto; во flex-колонке auto-поля по горизонтали
+     отключают растяжение и центрируют блок по ширине текста - сбрасываем */
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100%;
   padding-top: 1.5em;
 }
 
