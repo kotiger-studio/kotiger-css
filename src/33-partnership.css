@@ -176,3 +176,9 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
   .fe-6ab51e36a13453406e8d1a34 {grid-template-rows: repeat(18, minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto)) !important;}
   .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602 {grid-row: 16 / 19 !important;}
 }
+
+/* Pricing: сообщение после отправки формы - по левому краю, как остальной текст секции
+   (Squarespace центрирует его по умолчанию, инлайн-стилем - отсюда !important) */
+#block-yui_3_17_2_1_1791052841990_7602 .form-submission-text,
+#block-yui_3_17_2_1_1791052841990_7602 .form-submission-html,
+#block-yui_3_17_2_1_1791052841990_7602 .form-submission-text p {text-align: left !important;}
