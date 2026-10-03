@@ -177,8 +177,10 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
   .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602 {grid-row: 16 / 19 !important;}
 }
 
-/* Pricing: сообщение после отправки формы - по левому краю, как остальной текст секции
-   (Squarespace центрирует его по умолчанию, инлайн-стилем - отсюда !important) */
-#block-yui_3_17_2_1_1791052841990_7602 .form-submission-text,
-#block-yui_3_17_2_1_1791052841990_7602 .form-submission-html,
-#block-yui_3_17_2_1_1791052841990_7602 .form-submission-text p {text-align: left !important;}
+/* Pricing: сообщение после отправки формы. Блок формы стоит в колонках 7-23 (на одну колонку правее
+   центра страницы - под левый край текста выше), поэтому центрированное сообщение выглядит сдвинутым.
+   После отправки в блоке появляется .form-submission-text - на это время сдвигаем блок на колонки 6-22,
+   симметрично центру страницы. Сама форма остаётся на месте. */
+@media (min-width: 768px) {
+  .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602:has(.form-submission-text) {grid-column: 6 / 22 !important;}
+}
