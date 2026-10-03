@@ -426,7 +426,7 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
 @media (min-width: 768px) {
   .fe-6ab51e36a13453406e8d1a34 {grid-template-rows: repeat(17, minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto)) !important;}
   .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602 {grid-row: 14 / 17 !important;} /* сразу после вступительной фразы */
-  #block-yui_3_17_2_1_1791052841990_7602 .form-wrapper {margin-top: 36px;} /* ~50px от фразы до подписей полей, не зависит от ширины экрана */
+  #block-yui_3_17_2_1_1791052841990_7602 .form-wrapper {margin-top: 28px;} /* ~50px от фразы до подписей полей, не зависит от ширины экрана */
 }
 
 /* Pricing: сообщение после отправки формы. Блок формы стоит в колонках 7-23 (на одну колонку правее
