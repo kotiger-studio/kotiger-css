@@ -167,3 +167,12 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
   #block-yui_3_17_2_1_1791052841990_7602 .form-button-wrapper {grid-column: 1; grid-row: 3;}
   #block-yui_3_17_2_1_1791052841990_7602 .form-submit-button {width: 100%;}
 }
+
+/* Pricing: после перевода формы в один ряд блок формы стал ниже, но в Fluid Engine он по-прежнему
+   занимает 6 рядов сетки (16-22) - под формой оставалось ~170px пустоты. Ужимаем блок до 3 рядов
+   и сетку секции с 21 до 18 рядов. Формула высоты ряда - родная Squarespace, иначе ломаются отступы.
+   Только десктоп: на мобильном форма столбиком и ряды нужны все. */
+@media (min-width: 768px) {
+  .fe-6ab51e36a13453406e8d1a34 {grid-template-rows: repeat(18, minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto)) !important;}
+  .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602 {grid-row: 16 / 19 !important;}
+}
