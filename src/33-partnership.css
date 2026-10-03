@@ -142,3 +142,28 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
   width: 100%;
   padding-top: 1.5em;
 }
+
+/* Pricing: форма "Send Me Your Rates" в один ряд - Email | Company Website | кнопка.
+   Squarespace кладёт поля столбиком; переводим контейнер формы в grid, список полей раскрываем
+   через display:contents. На мобильном - снова столбик, кнопка на всю ширину. */
+#block-yui_3_17_2_1_1791052841990_7602 .react-form-contents {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  column-gap: 16px;
+  align-items: end;
+}
+#block-yui_3_17_2_1_1791052841990_7602 .field-list {display: contents;}
+#block-yui_3_17_2_1_1791052841990_7602 .react-form-contents > * {grid-column: 1 / -1;} /* прочие элементы (ошибки, капча) - на всю ширину ниже */
+#block-yui_3_17_2_1_1791052841990_7602 .form-item {margin-bottom: 0 !important;}
+#block-yui_3_17_2_1_1791052841990_7602 .form-item.email {grid-column: 1; grid-row: 1;}
+#block-yui_3_17_2_1_1791052841990_7602 .form-item.text {grid-column: 2; grid-row: 1;}
+#block-yui_3_17_2_1_1791052841990_7602 .form-button-wrapper {grid-column: 3; grid-row: 1; margin: 0 !important;}
+#block-yui_3_17_2_1_1791052841990_7602 .form-submit-button {white-space: nowrap; height: 50px; box-sizing: border-box;} /* высота = высоте поля ввода */
+
+@media (max-width: 767px) {
+  #block-yui_3_17_2_1_1791052841990_7602 .react-form-contents {grid-template-columns: 1fr; row-gap: 16px;}
+  #block-yui_3_17_2_1_1791052841990_7602 .form-item.email {grid-column: 1; grid-row: 1;}
+  #block-yui_3_17_2_1_1791052841990_7602 .form-item.text {grid-column: 1; grid-row: 2;}
+  #block-yui_3_17_2_1_1791052841990_7602 .form-button-wrapper {grid-column: 1; grid-row: 3;}
+  #block-yui_3_17_2_1_1791052841990_7602 .form-submit-button {width: 100%;}
+}
