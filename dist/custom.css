@@ -419,14 +419,14 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
 
 /* Pricing: после перевода формы в один ряд блок формы стал ниже, но в Fluid Engine он по-прежнему
    занимает 6 рядов сетки - под формой оставалась пустота. Ужимаем блок до 3 рядов и сетку секции
-   до 18 рядов. Формула высоты ряда - родная Squarespace, иначе ломаются отступы.
+   до 17 рядов. Формула высоты ряда - родная Squarespace, иначе ломаются отступы.
    Только десктоп: на мобильном форма столбиком и ряды нужны все.
    Актуальная раскладка секции в редакторе (2026-10-04): пункты 7-13, вступление 13-14, форма 15-21, рядов 20.
    Если блоки в редакторе сдвинутся - номера рядов здесь надо пересчитать. */
 @media (min-width: 768px) {
-  .fe-6ab51e36a13453406e8d1a34 {grid-template-rows: repeat(18, minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto)) !important;}
-  .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602 {grid-row: 15 / 18 !important;}
-  #block-yui_3_17_2_1_1791052841990_7602 .form-wrapper {margin-top: 12px;} /* ~60px от вступительной фразы до подписей полей */
+  .fe-6ab51e36a13453406e8d1a34 {grid-template-rows: repeat(17, minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto)) !important;}
+  .fe-6ab51e36a13453406e8d1a34 .fe-block-yui_3_17_2_1_1791052841990_7602 {grid-row: 14 / 17 !important;} /* сразу после вступительной фразы */
+  #block-yui_3_17_2_1_1791052841990_7602 .form-wrapper {margin-top: 36px;} /* ~50px от фразы до подписей полей, не зависит от ширины экрана */
 }
 
 /* Pricing: сообщение после отправки формы. Блок формы стоит в колонках 7-23 (на одну колонку правее
@@ -442,7 +442,7 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
    Рамка-фокус: Squarespace ставит фокус на сообщение после отправки - браузер рисует чёрный контур */
 #block-yui_3_17_2_1_1791052841990_7602 .form-submission-text,
 #block-yui_3_17_2_1_1791052841990_7602 .form-submission-html {margin-top: 0 !important; padding-top: 0 !important; outline: none !important;}
-#block-yui_3_17_2_1_1791052841990_7602 .form-submission-text {margin-top: 16px !important;} /* с учётом margin-top .form-wrapper: ~46px от вступительной фразы */
+#block-yui_3_17_2_1_1791052841990_7602 .form-submission-text {margin-top: 0 !important;} /* с учётом margin-top .form-wrapper: ~50px от вступительной фразы */
 #block-yui_3_17_2_1_1791052841990_7602 .form-submission-text > :first-child {margin-top: 0 !important;}
 
 /* ===== 34-contact.css ===== */
