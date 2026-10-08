@@ -144,10 +144,15 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 .kt-hero-section .section-border, .kt-hero-section .section-background {display: none;}
 .kt-hero-section .content-wrapper {padding-top: 0 !important; padding-bottom: 0 !important; min-height: calc(100vh - var(--kt-header-h, 68px)); display: flex; align-items: flex-end;}
 .kt-hero-section .content {width: 100% !important; max-width: none !important;}
-.kt-hero-section .fluid-engine, .kt-hero-section .fe-block, .kt-hero-section .sqs-block {padding: 0; margin: 0;}
+/* Сетка Fluid Engine выключена: ряды по ~40px раздували секцию; блок один, пусть лежит потоком */
+.kt-hero-section .fluid-engine {display: block !important; padding: 0 !important; width: 100%;}
+.kt-hero-section .fe-block, .kt-hero-section .sqs-block {padding: 0; margin: 0; position: static;}
 .kt-hero-section .sqs-block-code .sqs-block-content {height: auto;}
-/* Встроенные анимации Squarespace (Fade/Detailed) в этой секции выключены - у hero свои */
-.kt-hero-section .sqs-block, .kt-hero-section .fe-block, .kt-hero-section [data-animation-role] {animation: none !important; opacity: 1 !important; transform: none !important; visibility: visible !important; transition: none !important;}
+/* Встроенные анимации Squarespace (Fade/Detailed) в этой секции выключены - у hero свои.
+   Squarespace вешает на каждый элемент классы preFade/fadeIn (fadeIn = opacity:1 !important, кроме элементов
+   с атрибутом data-override-initial-global-animation). Скрипт ставит этот атрибут и снимает классы; CSS - страховка. */
+.kt-hero-section .sqs-block, .kt-hero-section .fe-block {animation: none !important; opacity: 1 !important; transform: none !important; visibility: visible !important; transition: none !important;}
+#kt-hero .preFade, #kt-hero .preSlide, #kt-hero .preScale, #kt-hero .preClip, #kt-hero .preFlex {transition-property: none !important; clip-path: none !important;}
 
 /* --- фон: слайдшоу (скрипт переносит .kt-bg-wrap в начало секции) --- */
 .kt-bg-wrap {position: absolute; inset: 0; z-index: 0; pointer-events: none;}

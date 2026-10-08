@@ -46,6 +46,27 @@
     if (!hero || hero.dataset.ktReady) return;
     hero.dataset.ktReady = '1';
 
+    /* Отключаем глобальную анимацию Squarespace внутри hero: атрибут выводит элемент из-под
+       правила .fadeIn{opacity:1!important}, классы preFade/fadeIn и подобные снимаем сразу и при повторном навешивании */
+    var SQS_ANIM = ['preFade', 'fadeIn', 'preSlide', 'slideIn', 'preScale', 'scaleIn', 'preClip', 'clipIn', 'preFlex', 'flexIn'];
+    function stripAnim(root) {
+      var els = [root].concat(Array.prototype.slice.call(root.querySelectorAll('*')));
+      els.forEach(function (el) {
+        if (!el.hasAttribute('data-override-initial-global-animation')) el.setAttribute('data-override-initial-global-animation', '');
+        SQS_ANIM.forEach(function (c) { if (el.classList.contains(c)) el.classList.remove(c); });
+      });
+    }
+    stripAnim(hero);
+    if (window.MutationObserver) {
+      new MutationObserver(function (muts) {
+        muts.forEach(function (m) {
+          var el = m.target;
+          if (el.nodeType !== 1) return;
+          SQS_ANIM.forEach(function (c) { if (el.classList.contains(c)) el.classList.remove(c); });
+        });
+      }).observe(hero, { attributes: true, attributeFilter: ['class'], subtree: true });
+    }
+
     var section = hero.closest('section');
     var bgWrap = hero.querySelector('.kt-bg-wrap');
     if (section) {
