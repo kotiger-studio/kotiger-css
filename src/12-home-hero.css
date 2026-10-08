@@ -94,6 +94,25 @@
   .kt-bg.kt-on {opacity: 1;}
 }
 
+/* Пропорциональный масштаб: макет утверждён при 1440x900, поэтому на десктопе все размеры заданы
+   в «пикселях макета» (--u = ширина окна / 1440, но не больше высоты / 820, чтобы влезало на низкие широкие экраны).
+   На любом экране картина такая же, как в макете. */
+.kt-hero-section {--u: clamp(.6px, min(100vw / 1440, 100vh / 860), 1.9px);}
+@media screen and (min-width: 721px) {
+  #kt-hero .kt-inner {max-width: calc(1440 * var(--u)); padding: calc(120 * var(--u)) calc(60 * var(--u)) calc(52 * var(--u)); gap: calc(28 * var(--u));}
+  #kt-hero .kt-eye {font-size: calc(12 * var(--u));}
+  #kt-hero .kt-h1 {font-size: calc(118 * var(--u));}
+  #kt-hero .kt-txt {max-width: calc(560 * var(--u)); font-size: calc(19 * var(--u));}
+  #kt-hero .kt-txt p {max-width: none;}
+  #kt-hero .kt-body {gap: calc(36 * var(--u));}
+  #kt-hero .kt-btn {min-width: calc(236 * var(--u)); padding: calc(18 * var(--u)) calc(28 * var(--u)); font-size: calc(13 * var(--u));}
+  #kt-hero .kt-btn:hover .kt-lbl {transform: translateX(calc(-13 * var(--u)));}
+  #kt-hero .kt-btn svg {right: calc(22 * var(--u)); width: calc(18 * var(--u)); height: calc(12 * var(--u)); margin-top: calc(-6 * var(--u));}
+  #kt-hero .kt-cta {gap: calc(14 * var(--u));}
+  #kt-hero .kt-count {margin-top: calc(28 * var(--u)); gap: calc(20 * var(--u)); font-size: calc(11 * var(--u));}
+  #kt-hero .kt-count span {padding-top: calc(12 * var(--u));}
+}
+
 /* Мобильная версия пока не проектировалась - минимум, чтобы ничего не ломалось */
 @media screen and (max-width: 720px) {
   #kt-hero .kt-count {gap: 10px; font-size: 9px; letter-spacing: .12em;}
