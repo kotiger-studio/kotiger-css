@@ -33,6 +33,64 @@
       card.appendChild(a);
     });
   }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCards);
-  else initCards();
+
+  /* HERO главной (#kt-hero в Code Block). Стили - src/12-home-hero.css.
+     Один таймер переключает кадр фона и полоску счётчика (7 с на кадр),
+     CSS только рисует переходы. Ещё: секции даётся класс .kt-hero-section, фон переносится
+     в начало секции (чтобы лечь под контент на всю площадь), линия под H1 = ширине «Impact.»,
+     высота шапки пишется в --kt-header-h. */
+  var HERO_SLIDE_MS = 7000;
+
+  function initHero() {
+    var hero = document.getElementById('kt-hero');
+    if (!hero || hero.dataset.ktReady) return;
+    hero.dataset.ktReady = '1';
+
+    var section = hero.closest('section');
+    var bgWrap = hero.querySelector('.kt-bg-wrap');
+    if (section) {
+      section.classList.add('kt-hero-section');
+      if (bgWrap) section.insertBefore(bgWrap, section.firstChild);
+    }
+
+    /* высота шапки Squarespace -> CSS-переменная (секция = экран минус шапка) */
+    function setHeaderH() {
+      var h = document.getElementById('header');
+      if (h) document.documentElement.style.setProperty('--kt-header-h', h.offsetHeight + 'px');
+    }
+
+    /* линия под заголовком = ширине слова «Impact.» */
+    var impact = hero.querySelector('.kt-w3 .kt-word');
+    function setRule() {
+      if (!impact) return;
+      var w = Math.round(impact.getBoundingClientRect().width);
+      if (w) hero.style.setProperty('--kt-rule-w', w + 'px');
+    }
+
+    setHeaderH(); setRule();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setHeaderH(); setRule(); });
+    setTimeout(function () { setHeaderH(); setRule(); }, 1200);
+    window.addEventListener('resize', function () { setHeaderH(); setRule(); });
+
+    /* появление элементов */
+    requestAnimationFrame(function () { hero.classList.add('kt-in'); });
+
+    /* слайдшоу + счётчик на одном таймере */
+    var slides = bgWrap ? Array.prototype.slice.call(bgWrap.querySelectorAll('.kt-bg')) : [];
+    var bars = Array.prototype.slice.call(hero.querySelectorAll('.kt-count span'));
+    var n = Math.min(slides.length, bars.length);
+    if (!n) return;
+    var cur = 0;
+    function show(i, prev) {
+      slides.forEach(function (s, k) { s.classList.toggle('kt-on', k === i); s.classList.toggle('kt-out', k === prev); });
+      bars.forEach(function (b, k) { b.classList.toggle('kt-on', k === i); });
+    }
+    show(0, -1);
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    setInterval(function () { var prev = cur; cur = (cur + 1) % n; show(cur, prev); }, HERO_SLIDE_MS);
+  }
+
+  function init() { initCards(); initHero(); }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();

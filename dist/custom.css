@@ -133,6 +133,105 @@ section[data-section-id="619ceb63d909022f0418e137"] .content {padding: 4rem 6rem
 
 section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-top: 0px !important;}
 
+/* ===== 12-home-hero.css ===== */
+/* HOME HERO (2026-10) - "Accuracy. Creativity. Impact."
+   Разметка живёт в Code Block на главной (#kt-hero), поведение - в js/site.js (модуль HERO).
+   Все правила привязаны к #kt-hero и к секции, которой скрипт даёт класс .kt-hero-section.
+   Шрифты Archivo и Manrope подключаются в Code Injection -> Header (Google Fonts). */
+
+/* --- секция Squarespace, в которой лежит Code Block --- */
+.kt-hero-section {position: relative; overflow: hidden; background: #0b0c0e; min-height: calc(100vh - var(--kt-header-h, 68px));}
+.kt-hero-section .section-border, .kt-hero-section .section-background {display: none;}
+.kt-hero-section .content-wrapper {padding-top: 0 !important; padding-bottom: 0 !important; min-height: calc(100vh - var(--kt-header-h, 68px)); display: flex; align-items: flex-end;}
+.kt-hero-section .content {width: 100% !important; max-width: none !important;}
+.kt-hero-section .fluid-engine, .kt-hero-section .fe-block, .kt-hero-section .sqs-block {padding: 0; margin: 0;}
+.kt-hero-section .sqs-block-code .sqs-block-content {height: auto;}
+/* Встроенные анимации Squarespace (Fade/Detailed) в этой секции выключены - у hero свои */
+.kt-hero-section .sqs-block, .kt-hero-section .fe-block, .kt-hero-section [data-animation-role] {animation: none !important; opacity: 1 !important; transform: none !important; visibility: visible !important; transition: none !important;}
+
+/* --- фон: слайдшоу (скрипт переносит .kt-bg-wrap в начало секции) --- */
+.kt-bg-wrap {position: absolute; inset: 0; z-index: 0; pointer-events: none;}
+.kt-bg {position: absolute; inset: 0; background-size: cover; background-position: center 40%; opacity: 0; transition: opacity 1.1s ease;}
+.kt-bg.kt-on, .kt-bg.kt-out {animation: ktKen 8.2s linear forwards;}
+.kt-bg.kt-on {opacity: 1; z-index: 1;}
+.kt-bg.kt-out {opacity: 0; z-index: 0;}
+.kt-grad {position: absolute; inset: 0; z-index: 2; background: linear-gradient(90deg, rgba(8,9,11,.82) 0%, rgba(8,9,11,.55) 45%, rgba(8,9,11,.12) 100%), linear-gradient(0deg, rgba(8,9,11,.78) 0%, rgba(8,9,11,0) 48%);}
+.kt-hero-section .content-wrapper {position: relative; z-index: 3;}
+
+/* --- контент --- */
+#kt-hero {color: #fff; font-family: Manrope, sans-serif; width: 100%;}
+#kt-hero .kt-inner {position: relative; width: 100%; max-width: 1320px; margin: 0 auto; padding: clamp(72px, 10vh, 120px) clamp(20px, 5vw, 60px) clamp(32px, 5vh, 52px); box-sizing: border-box; display: flex; flex-direction: column; gap: 28px;}
+#kt-hero p, #kt-hero h1 {margin: 0; color: #fff; text-shadow: none;}
+
+#kt-hero .kt-eye {font: 500 12px/1.4 Manrope, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.72);}
+#kt-hero .kt-h1 {font: 600 clamp(44px, 8.2vw, 124px)/1 Archivo, sans-serif; letter-spacing: -.025em; display: flex; flex-wrap: wrap; column-gap: .28em; row-gap: .08em;}
+#kt-hero .kt-h1 > span {display: inline-block;}
+#kt-hero .kt-word {display: inline-block; cursor: default; transition: opacity .45s ease, transform .45s ease;}
+#kt-hero .kt-rule {width: var(--kt-rule-w, 96px); height: 1px; background: rgba(255,255,255,.6);}
+
+#kt-hero .kt-body {display: flex; flex-direction: column; align-items: flex-start; gap: 36px;}
+#kt-hero .kt-txt {position: relative; min-height: 4.9em; width: 100%; max-width: 560px; font: 400 clamp(16px, 1.3vw, 19px)/1.6 Manrope, sans-serif; color: rgba(255,255,255,.86);}
+#kt-hero .kt-txt p {position: absolute; left: 0; top: 0; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; pointer-events: none;}
+#kt-hero .kt-txt .kt-t0 {opacity: 1; transform: none;}
+
+/* кнопки: две одинаковые, рамка; при наведении заливка, подпись уезжает влево, справа появляется стрелка */
+#kt-hero .kt-cta {display: flex; flex-wrap: wrap; gap: 14px;}
+#kt-hero .kt-btn {position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 236px; padding: 18px 28px; border: 1px solid rgba(255,255,255,.55); background: transparent; border-radius: 0; text-decoration: none; font: 500 13px/1 Manrope, sans-serif; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; color: #fff; transition: background .3s, color .3s, border-color .3s;}
+#kt-hero .kt-btn:hover {background: #fff; color: #0b0c0e; border-color: #fff;}
+#kt-hero .kt-btn .kt-lbl {display: inline-block; transition: transform .35s cubic-bezier(.2,.7,.2,1);}
+#kt-hero .kt-btn:hover .kt-lbl {transform: translateX(-13px);}
+#kt-hero .kt-btn svg {position: absolute; right: 22px; top: 50%; width: 18px; height: 12px; margin-top: -6px; opacity: 0; transform: translateX(-8px); transition: opacity .25s ease .05s, transform .35s cubic-bezier(.2,.7,.2,1);}
+#kt-hero .kt-btn:hover svg {opacity: 1; transform: translateX(0);}
+
+/* счётчик кадров */
+#kt-hero .kt-count {display: flex; gap: 20px; margin-top: 28px; width: 100%; font: 400 11px/1 Manrope, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.5);}
+#kt-hero .kt-count span {position: relative; flex: 1 1 0; min-width: 0; padding-top: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: color .4s ease;}
+#kt-hero .kt-count span.kt-on {color: rgba(255,255,255,.95);}
+#kt-hero .kt-count span::before {content: ""; position: absolute; left: 0; top: 0; height: 1px; width: 100%; background: rgba(255,255,255,.22);}
+#kt-hero .kt-count span::after {content: ""; position: absolute; left: 0; top: 0; height: 1px; width: 100%; background: rgba(255,255,255,.55); transform-origin: left; transform: scaleX(0);}
+#kt-hero .kt-count span.kt-on::after {animation: ktBar 7s linear forwards;}
+
+/* наведение на слово (десктоп): слово яркое, остальные притухают, текст сменяется на расшифровку, остальное гаснет */
+@media (hover: hover) {
+  #kt-hero .kt-h1:has(.kt-word:hover) .kt-word:not(:hover) {opacity: .32;}
+  #kt-hero .kt-word:hover {transform: translateY(-.03em);}
+  #kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease;}
+  #kt-hero:has(.kt-word:hover) .kt-eye, #kt-hero:has(.kt-word:hover) .kt-cta, #kt-hero:has(.kt-word:hover) .kt-count {filter: brightness(.4);}
+  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-10px);}
+  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t1, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t2, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t3 {opacity: 1; transform: none; transition-delay: .12s;}
+}
+
+/* появление при загрузке: запускается классом .kt-in, который ставит скрипт */
+#kt-hero .kt-up {opacity: 0; transform: translateY(22px);}
+#kt-hero .kt-rule {transform: scaleX(0); transform-origin: left;}
+#kt-hero.kt-in .kt-up {animation: ktUp .9s cubic-bezier(.2,.7,.2,1) forwards;}
+#kt-hero.kt-in .kt-eye {animation-delay: .1s;}
+#kt-hero.kt-in .kt-w1 {animation-delay: .35s;}
+#kt-hero.kt-in .kt-w2 {animation-delay: .6s;}
+#kt-hero.kt-in .kt-w3 {animation-delay: .85s;}
+#kt-hero.kt-in .kt-txt {animation-delay: 1.25s;}
+#kt-hero.kt-in .kt-cta {animation-delay: 1.5s;}
+#kt-hero.kt-in .kt-count {animation-delay: 2s;}
+#kt-hero.kt-in .kt-rule {animation: ktRule 1s cubic-bezier(.2,.7,.2,1) 1.1s forwards;}
+
+@keyframes ktKen {0% {transform: scale(1.12) translate(1.5%, 0);} 100% {transform: scale(1) translate(0, 0);}}
+@keyframes ktBar {0% {transform: scaleX(0);} 100% {transform: scaleX(1);}}
+@keyframes ktUp {to {opacity: 1; transform: none;}}
+@keyframes ktRule {to {transform: scaleX(1);}}
+
+@media (prefers-reduced-motion: reduce) {
+  .kt-bg, #kt-hero .kt-up, #kt-hero .kt-rule, #kt-hero .kt-count span::after {animation: none !important; transform: none !important;}
+  #kt-hero .kt-up, #kt-hero .kt-rule {opacity: 1;}
+  .kt-bg.kt-on {opacity: 1;}
+}
+
+/* Мобильная версия пока не проектировалась - минимум, чтобы ничего не ломалось */
+@media screen and (max-width: 720px) {
+  #kt-hero .kt-count {gap: 10px; font-size: 9px; letter-spacing: .12em;}
+  #kt-hero .kt-btn {min-width: 0; width: 100%;}
+  #kt-hero .kt-cta {width: 100%;}
+}
+
 /* ===== 20-service-pages.css ===== */
 /* СТРАНИЦЫ УСЛУГ
    Exteriors, Interiors, Virtual Tours, 3D Floor Plans, 3D Site Plans, 3D Videos, Virtual Staging.
