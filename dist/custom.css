@@ -171,14 +171,14 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 #kt-hero .kt-eye {font: 500 12px/1.4 Manrope, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.72);}
 #kt-hero .kt-h1 {font: 600 clamp(44px, 8.2vw, 124px)/1 Archivo, sans-serif; letter-spacing: -.025em; display: flex; flex-wrap: wrap; column-gap: .28em; row-gap: .08em;}
 #kt-hero .kt-h1 > span {display: inline-block;}
-#kt-hero .kt-word {display: inline-block; cursor: default; transition: opacity .45s ease, transform .45s ease;}
+#kt-hero .kt-word {display: inline-block; cursor: default; transition: opacity .45s ease, transform .45s ease !important;}
 #kt-hero .kt-rule {width: var(--kt-rule-w, 96px); height: 1px; background: rgba(255,255,255,.6);}
 
 #kt-hero .kt-body {display: flex; flex-direction: column; align-items: flex-start; gap: 36px;}
 #kt-hero .kt-txt {position: relative; min-height: 4.9em; width: 100%; max-width: 560px; font: 400 clamp(16px, 1.3vw, 19px)/1.6 Manrope, sans-serif; color: rgba(255,255,255,.86);}
 /* смена текста последовательная: уходящий гаснет за .18s, новый появляется только после этого */
-#kt-hero .kt-txt p {position: absolute; left: 0; top: 0; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease; pointer-events: none;}
-#kt-hero .kt-txt .kt-t0 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s;}
+#kt-hero .kt-txt p {position: absolute; left: 0; top: 0; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease !important; pointer-events: none;}
+#kt-hero .kt-txt .kt-t0 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s !important;}
 
 /* кнопки: две одинаковые, рамка; при наведении заливка, подпись уезжает влево, справа появляется стрелка */
 #kt-hero .kt-cta {display: flex; flex-wrap: wrap; gap: 14px;}
@@ -201,10 +201,10 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 @media (hover: hover) {
   #kt-hero .kt-h1:has(.kt-word:hover) .kt-word:not(:hover) {opacity: .32;}
   #kt-hero .kt-word:hover {transform: translateY(-.03em);}
-  #kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease;}
+  #kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease !important;}
   #kt-hero:has(.kt-word:hover) .kt-eye, #kt-hero:has(.kt-word:hover) .kt-cta, #kt-hero:has(.kt-word:hover) .kt-count {filter: brightness(.4);}
-  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease;}
-  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t1, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t2, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t3 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s;}
+  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease !important;}
+  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t1, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t2, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t3 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s !important;}
 }
 
 /* появление при загрузке: запускается классом .kt-in, который ставит скрипт */

@@ -49,11 +49,19 @@
     /* Отключаем глобальную анимацию Squarespace внутри hero: атрибут выводит элемент из-под
        правила .fadeIn{opacity:1!important}, классы preFade/fadeIn и подобные снимаем сразу и при повторном навешивании */
     var SQS_ANIM = ['preFade', 'fadeIn', 'preSlide', 'slideIn', 'preScale', 'scaleIn', 'preClip', 'clipIn', 'preFlex', 'flexIn'];
+    /* Squarespace при движении мыши ещё и пишет элементам inline transition-duration/-delay (0.9s) -
+       снимаем их, иначе они перебивают переходы из CSS */
+    var SQS_INLINE = ['transition-duration', 'transition-delay', 'transition-property', 'transition-timing-function', 'transition'];
+    function stripInline(el) {
+      if (!el.style) return;
+      SQS_INLINE.forEach(function (prop) { if (el.style.getPropertyValue(prop)) el.style.removeProperty(prop); });
+    }
     function stripAnim(root) {
       var els = [root].concat(Array.prototype.slice.call(root.querySelectorAll('*')));
       els.forEach(function (el) {
         if (!el.hasAttribute('data-override-initial-global-animation')) el.setAttribute('data-override-initial-global-animation', '');
         SQS_ANIM.forEach(function (c) { if (el.classList.contains(c)) el.classList.remove(c); });
+        stripInline(el);
       });
     }
     stripAnim(hero);
@@ -62,9 +70,10 @@
         muts.forEach(function (m) {
           var el = m.target;
           if (el.nodeType !== 1) return;
-          SQS_ANIM.forEach(function (c) { if (el.classList.contains(c)) el.classList.remove(c); });
+          if (m.attributeName === 'style') stripInline(el);
+          else SQS_ANIM.forEach(function (c) { if (el.classList.contains(c)) el.classList.remove(c); });
         });
-      }).observe(hero, { attributes: true, attributeFilter: ['class'], subtree: true });
+      }).observe(hero, { attributes: true, attributeFilter: ['class', 'style'], subtree: true });
     }
 
     var section = hero.closest('section');
