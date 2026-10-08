@@ -33,9 +33,9 @@
 #kt-hero p, #kt-hero h1 {margin: 0; color: #fff; text-shadow: none;}
 
 #kt-hero .kt-eye {font: 500 12px/1.4 Manrope, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.72);}
-#kt-hero .kt-h1 {font: 600 clamp(44px, 8.2vw, 124px)/1 Archivo, sans-serif; letter-spacing: -.025em; display: flex; flex-wrap: wrap; column-gap: .28em; row-gap: .08em;}
+#kt-hero .kt-h1 {font: 600 clamp(44px, 8.2vw, 124px)/1 Archivo, sans-serif; letter-spacing: -.025em; display: flex; flex-direction: column; align-items: flex-start;}
 #kt-hero .kt-h1 > span {display: inline-block;}
-#kt-hero .kt-word {display: inline-block; cursor: default; transition: opacity .45s ease, transform .45s ease !important;}
+#kt-hero .kt-word {display: inline-block; cursor: default; transform-origin: left center; transition: opacity .45s ease, transform .45s ease !important;}
 #kt-hero .kt-rule {width: var(--kt-rule-w, 96px); height: 1px; background: rgba(255,255,255,.6);}
 
 #kt-hero .kt-body {display: flex; flex-direction: column; align-items: flex-start; gap: 36px;}
@@ -63,8 +63,10 @@
 
 /* наведение на слово (десктоп): слово яркое, остальные притухают, текст сменяется на расшифровку, остальное гаснет */
 @media (hover: hover) {
-  #kt-hero .kt-h1:has(.kt-word:hover) .kt-word:not(:hover) {opacity: .32;}
-  #kt-hero .kt-word:hover {transform: translateY(-.03em);}
+  /* активное слово растёт на 4%, остальные уменьшаются; соседнее притухает до 32%, дальнее - вдвое сильнее */
+  #kt-hero .kt-h1:has(.kt-word:hover) .kt-word:not(:hover) {opacity: .32; transform: scale(.96);}
+  #kt-hero .kt-word:hover {transform: scale(1.04);}
+  #kt-hero .kt-h1:has(.kt-w1 .kt-word:hover) .kt-w3 .kt-word, #kt-hero .kt-h1:has(.kt-w3 .kt-word:hover) .kt-w1 .kt-word {opacity: .16;}
   #kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease !important;}
   #kt-hero:has(.kt-word:hover) .kt-eye, #kt-hero:has(.kt-word:hover) .kt-cta, #kt-hero:has(.kt-word:hover) .kt-count {filter: brightness(.4);}
   #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease !important;}
@@ -102,7 +104,6 @@
 /* Узкий десктоп / планшет (721-1199px): не мельче макета 1440, слова H1 в столбик */
 @media screen and (min-width: 721px) and (max-width: 1199px) {
   .kt-hero-section {--u: 1px;}
-  #kt-hero .kt-h1 {flex-direction: column; align-items: flex-start; row-gap: 0;}
 }
 @media screen and (min-width: 721px) {
   #kt-hero .kt-inner {max-width: calc(1440 * var(--u)); padding: calc(120 * var(--u)) calc(60 * var(--u)) calc(52 * var(--u)); gap: calc(28 * var(--u));}
