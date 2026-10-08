@@ -40,8 +40,9 @@
 
 #kt-hero .kt-body {display: flex; flex-direction: column; align-items: flex-start; gap: 36px;}
 #kt-hero .kt-txt {position: relative; min-height: 4.9em; width: 100%; max-width: 560px; font: 400 clamp(16px, 1.3vw, 19px)/1.6 Manrope, sans-serif; color: rgba(255,255,255,.86);}
-#kt-hero .kt-txt p {position: absolute; left: 0; top: 0; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; pointer-events: none;}
-#kt-hero .kt-txt .kt-t0 {opacity: 1; transform: none;}
+/* смена текста последовательная: уходящий гаснет за .18s, новый появляется только после этого */
+#kt-hero .kt-txt p {position: absolute; left: 0; top: 0; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease; pointer-events: none;}
+#kt-hero .kt-txt .kt-t0 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s;}
 
 /* кнопки: две одинаковые, рамка; при наведении заливка, подпись уезжает влево, справа появляется стрелка */
 #kt-hero .kt-cta {display: flex; flex-wrap: wrap; gap: 14px;}
@@ -66,8 +67,8 @@
   #kt-hero .kt-word:hover {transform: translateY(-.03em);}
   #kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease;}
   #kt-hero:has(.kt-word:hover) .kt-eye, #kt-hero:has(.kt-word:hover) .kt-cta, #kt-hero:has(.kt-word:hover) .kt-count {filter: brightness(.4);}
-  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-10px);}
-  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t1, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t2, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t3 {opacity: 1; transform: none; transition-delay: .12s;}
+  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease;}
+  #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t1, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t2, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t3 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s;}
 }
 
 /* появление при загрузке: запускается классом .kt-in, который ставит скрипт */
@@ -98,6 +99,11 @@
    в «пикселях макета» (--u = ширина окна / 1440, но не больше высоты / 820, чтобы влезало на низкие широкие экраны).
    На любом экране картина такая же, как в макете. */
 .kt-hero-section {--u: clamp(.6px, min(100vw / 1440, 100vh / 860), 1.9px);}
+/* Узкий десктоп / планшет (721-1199px): не мельче макета 1440, слова H1 в столбик */
+@media screen and (min-width: 721px) and (max-width: 1199px) {
+  .kt-hero-section {--u: 1px;}
+  #kt-hero .kt-h1 {flex-direction: column; align-items: flex-start; row-gap: 0;}
+}
 @media screen and (min-width: 721px) {
   #kt-hero .kt-inner {max-width: calc(1440 * var(--u)); padding: calc(120 * var(--u)) calc(60 * var(--u)) calc(52 * var(--u)); gap: calc(28 * var(--u));}
   #kt-hero .kt-eye {font-size: calc(12 * var(--u));}
