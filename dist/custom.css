@@ -236,13 +236,13 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 /* Пропорциональный масштаб: макет утверждён при 1440x900, поэтому на десктопе все размеры заданы
    в «пикселях макета» (--u = ширина окна / 1440, но не больше высоты / 820, чтобы влезало на низкие широкие экраны).
    На любом экране картина такая же, как в макете. */
-.kt-hero-section {--u: clamp(.6px, min(100vw / 1440, 100vh / 860), 1.9px);}
+.kt-hero-section {--u: clamp(.6px, min(100vw / 1440, 100vh / 920), 1.9px);}
 /* Узкий десктоп / планшет (721-1199px): не мельче макета 1440, слова H1 в столбик */
 @media screen and (min-width: 721px) and (max-width: 1199px) {
   .kt-hero-section {--u: 1px;}
 }
 @media screen and (min-width: 721px) {
-  #kt-hero .kt-inner {max-width: calc(1440 * var(--u)); padding: calc(120 * var(--u)) calc(60 * var(--u)) calc(52 * var(--u)); gap: calc(28 * var(--u));}
+  #kt-hero .kt-inner {max-width: calc(1440 * var(--u)); padding: calc(56 * var(--u)) calc(60 * var(--u)) calc(52 * var(--u)); gap: calc(28 * var(--u));}
   #kt-hero .kt-eye {font-size: calc(12 * var(--u));}
   #kt-hero .kt-h1 {font-size: calc(118 * var(--u));}
   #kt-hero .kt-txt {max-width: calc(560 * var(--u)); font-size: calc(19 * var(--u));}
