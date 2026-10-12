@@ -144,6 +144,27 @@
     /* появление элементов */
     requestAnimationFrame(function () { hero.classList.add('kt-in'); });
 
+    /* Тач-устройства (телефоны, планшеты без мыши): у них нет :hover, поэтому тап по слову H1 даёт то же
+       состояние, что наведение мышью на десктопе, - класс kt-a1 / kt-a2 / kt-a3 на #kt-hero (стили в 12-home-hero.css).
+       Повторный тап по активному слову или тап в любом месте вне H1 - сброс, тап по другому слову - переключение.
+       Слушаем pointerup, а не click: iOS не шлёт click по «некликабельным» элементам. Прокрутка пальцем даёт
+       pointercancel вместо pointerup, поэтому свайп по странице слово не включает. Мышь класс не ставит (у неё :hover). */
+    var wordRows = Array.prototype.slice.call(hero.querySelectorAll('.kt-h1 > span'));
+    var activeWord = 0, downX = 0, downY = 0;
+    function setActiveWord(k) {
+      activeWord = k;
+      for (var i = 1; i <= 3; i++) hero.classList.toggle('kt-a' + i, i === k);
+    }
+    document.addEventListener('pointerdown', function (e) { downX = e.clientX; downY = e.clientY; }, true);
+    document.addEventListener('pointerup', function (e) {
+      if (!e.isPrimary) return;
+      if (e.pointerType === 'mouse') { if (activeWord) setActiveWord(0); return; }
+      if (Math.abs(e.clientX - downX) > 12 || Math.abs(e.clientY - downY) > 12) return; /* это был жест, а не тап */
+      var row = e.target && e.target.closest ? e.target.closest('.kt-h1 > span') : null;
+      var k = row ? wordRows.indexOf(row) + 1 : 0;
+      setActiveWord(k && k !== activeWord ? k : 0);
+    }, true);
+
     /* слайдшоу + счётчик на одном таймере; слои фона создаются здесь (старые .kt-bg из Code Block убираются) */
     if (!bgWrap) return;
     Array.prototype.slice.call(bgWrap.querySelectorAll('.kt-bg')).forEach(function (el) { bgWrap.removeChild(el); });

@@ -34,16 +34,24 @@
 
 #kt-hero .kt-eye {font: 500 12px/1.4 Manrope, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.72);}
 #kt-hero .kt-h1 {font: 600 clamp(44px, 8.2vw, 124px)/1 Archivo, sans-serif; letter-spacing: -.025em; display: flex; flex-direction: column; align-items: flex-start;}
-/* зона наведения на слово - полоса до ~57% ширины окна (47vw от левого края текста), сам текст слева */
-#kt-hero .kt-h1 > span {display: block; width: min(100%, 47vw);}
+/* строка слова - во всю ширину (иначе на узких экранах слова рвутся посередине, раунд 12);
+   на десктопе с мышью от 1200px - зона наведения: полоса до ~57% ширины окна (47vw от левого края текста), сам текст слева */
+#kt-hero .kt-h1 > span {display: block; width: 100%;}
+@media (hover: hover) and (min-width: 1200px) {
+  #kt-hero .kt-h1 > span {width: min(100%, 47vw);}
+}
+/* тап по слову на тач-устройствах: без серой подсветки и без задержки двойного тапа */
+#kt-hero .kt-h1 {-webkit-tap-highlight-color: transparent; touch-action: manipulation;}
 #kt-hero .kt-word {display: block; width: 100%;}
 #kt-hero .kt-word {cursor: default; transform-origin: left center; transition: opacity .45s ease, transform .45s ease !important;}
 #kt-hero .kt-rule {width: var(--kt-rule-w, 96px); height: 1px; background: rgba(255,255,255,.6);}
 
 #kt-hero .kt-body {display: flex; flex-direction: column; align-items: flex-start; gap: 36px;}
-#kt-hero .kt-txt {position: relative; min-height: 4.9em; width: 100%; max-width: 560px; font: 400 clamp(16px, 1.3vw, 19px)/1.6 Manrope, sans-serif; color: rgba(255,255,255,.86);}
+/* все четыре абзаца лежат в одной ячейке сетки: высота блока = самому длинному из них на текущей ширине,
+   поэтому при смене текста кнопки не сдвигаются и текст на них не налезает */
+#kt-hero .kt-txt {position: relative; display: grid; min-height: 4.9em; width: 100%; max-width: 560px; font: 400 clamp(16px, 1.3vw, 19px)/1.6 Manrope, sans-serif; color: rgba(255,255,255,.86);}
 /* смена текста последовательная: уходящий гаснет за .18s, новый появляется только после этого */
-#kt-hero .kt-txt p {position: absolute; left: 0; top: 0; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease !important; pointer-events: none;}
+#kt-hero .kt-txt p {grid-area: 1 / 1; max-width: 560px; font: inherit; color: inherit; opacity: 0; transform: translateY(8px); transition: opacity .18s ease, transform .18s ease !important; pointer-events: none;}
 #kt-hero .kt-txt .kt-t0 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s !important;}
 
 /* кнопки: две одинаковые, рамка; при наведении заливка, подпись уезжает влево, справа появляется стрелка */
@@ -69,11 +77,23 @@
   #kt-hero .kt-h1:has(.kt-word:hover) .kt-word:not(:hover) {opacity: .32; transform: scale(.96);}
   #kt-hero .kt-word:hover {transform: scale(1.04);}
   #kt-hero .kt-h1:has(.kt-w1 .kt-word:hover) .kt-w3 .kt-word, #kt-hero .kt-h1:has(.kt-w3 .kt-word:hover) .kt-w1 .kt-word {opacity: .16;}
-  #kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease !important;}
   #kt-hero:has(.kt-word:hover) .kt-eye, #kt-hero:has(.kt-word:hover) .kt-cta, #kt-hero:has(.kt-word:hover) .kt-count {filter: brightness(.4);}
   #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t0, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t0 {opacity: 0; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease !important;}
   #kt-hero:has(.kt-w1 .kt-word:hover) .kt-t1, #kt-hero:has(.kt-w2 .kt-word:hover) .kt-t2, #kt-hero:has(.kt-w3 .kt-word:hover) .kt-t3 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s !important;}
 }
+
+#kt-hero .kt-eye, #kt-hero .kt-cta, #kt-hero .kt-count {transition: filter .45s ease !important;}
+
+/* тап по слову (тач-устройства без hover): то же состояние, что наведение мышью на десктопе.
+   site.js ставит на #kt-hero класс kt-a1 / kt-a2 / kt-a3 (номер активного слова) и снимает его повторным тапом или тапом вне H1 */
+#kt-hero.kt-a1 .kt-word, #kt-hero.kt-a2 .kt-word, #kt-hero.kt-a3 .kt-word {opacity: .32; transform: scale(.96);}
+#kt-hero.kt-a1 .kt-w1 .kt-word, #kt-hero.kt-a2 .kt-w2 .kt-word, #kt-hero.kt-a3 .kt-w3 .kt-word {opacity: 1; transform: scale(1.04);}
+#kt-hero.kt-a1 .kt-w3 .kt-word, #kt-hero.kt-a3 .kt-w1 .kt-word {opacity: .16;}
+#kt-hero.kt-a1 .kt-eye, #kt-hero.kt-a1 .kt-cta, #kt-hero.kt-a1 .kt-count,
+#kt-hero.kt-a2 .kt-eye, #kt-hero.kt-a2 .kt-cta, #kt-hero.kt-a2 .kt-count,
+#kt-hero.kt-a3 .kt-eye, #kt-hero.kt-a3 .kt-cta, #kt-hero.kt-a3 .kt-count {filter: brightness(.4);}
+#kt-hero.kt-a1 .kt-txt .kt-t0, #kt-hero.kt-a2 .kt-txt .kt-t0, #kt-hero.kt-a3 .kt-txt .kt-t0 {opacity: 0; transform: translateY(-6px); transition: opacity .18s ease, transform .18s ease !important;}
+#kt-hero.kt-a1 .kt-txt .kt-t1, #kt-hero.kt-a2 .kt-txt .kt-t2, #kt-hero.kt-a3 .kt-txt .kt-t3 {opacity: 1; transform: none; transition: opacity .35s ease .18s, transform .35s ease .18s !important;}
 
 /* появление при загрузке: запускается классом .kt-in, который ставит скрипт */
 #kt-hero .kt-up {opacity: 0; transform: translateY(22px);}
@@ -127,4 +147,7 @@
   #kt-hero .kt-count {gap: 10px; font-size: 9px; letter-spacing: .12em;}
   #kt-hero .kt-btn {min-width: 0; width: 100%;}
   #kt-hero .kt-cta {width: 100%;}
+  /* eyebrow: разделитель-точка скрыт, «Since 2016» - отдельной строкой (точка не повисает в начале или конце строки) */
+  #kt-hero .kt-eye .kt-sep {display: none;}
+  #kt-hero .kt-eye .kt-since {display: block;}
 }
