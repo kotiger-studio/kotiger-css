@@ -170,8 +170,8 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 
 #kt-hero .kt-eye {font: 500 12px/1.4 Manrope, sans-serif; letter-spacing: .3em; text-transform: uppercase; color: rgba(255,255,255,.72);}
 #kt-hero .kt-h1 {font: 600 clamp(44px, 8.2vw, 124px)/1 Archivo, sans-serif; letter-spacing: -.025em; display: flex; flex-direction: column; align-items: flex-start;}
-/* зона наведения на слово - широкая полоса (около 60% окна), сам текст слева */
-#kt-hero .kt-h1 > span {display: block; width: min(100%, 62vw);}
+/* зона наведения на слово - полоса до ~57% ширины окна (47vw от левого края текста), сам текст слева */
+#kt-hero .kt-h1 > span {display: block; width: min(100%, 47vw);}
 #kt-hero .kt-word {display: block; width: 100%;}
 #kt-hero .kt-word {cursor: default; transform-origin: left center; transition: opacity .45s ease, transform .45s ease !important;}
 #kt-hero .kt-rule {width: var(--kt-rule-w, 96px); height: 1px; background: rgba(255,255,255,.6);}
