@@ -102,6 +102,21 @@
         stripInline(el);
       });
     }
+    /* Eyebrow «Architectural Visualization Studio · Since 2016»: разделитель и «Since 2016» оборачиваются в
+       span.kt-sep / span.kt-since, чтобы на узких экранах CSS убрал точку и перенёс год на свою строку
+       (иначе точка повисает в начале второй строки). Если в Code Block span'ы уже есть - ничего не делаем. */
+    var eye = hero.querySelector('.kt-eye');
+    if (eye && !eye.querySelector('.kt-since')) {
+      var eyeText = eye.textContent, dot = eyeText.indexOf('·');
+      if (dot > 0) {
+        var sep = document.createElement('span'); sep.className = 'kt-sep'; sep.textContent = ' · ';
+        var since = document.createElement('span'); since.className = 'kt-since';
+        since.textContent = eyeText.slice(dot + 1).replace(/^[\s ]+/, '');
+        eye.textContent = eyeText.slice(0, dot).replace(/[\s ]+$/, '') + ' ';
+        eye.appendChild(sep); eye.appendChild(document.createTextNode(' ')); eye.appendChild(since);
+      }
+    }
+
     stripAnim(hero);
     if (window.MutationObserver) {
       new MutationObserver(function (muts) {
