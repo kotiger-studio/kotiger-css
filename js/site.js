@@ -36,10 +36,48 @@
 
   /* HERO главной (#kt-hero в Code Block). Стили - src/12-home-hero.css.
      Один таймер переключает кадр фона и полоску счётчика (7 с на кадр),
-     CSS только рисует переходы. Ещё: секции даётся класс .kt-hero-section, фон переносится
+     CSS только рисует переходы.
+     Слайдшоу: категории идут по кругу в порядке счётчика; на каждом круге категория показывает
+     свою следующую картинку (кончились - с первой). Картинки - из галереи /user-storage
+     (section[data-section-id="6acd1495c1d9b84bd4e0e764"]), имена вида <категория>-<номер>-….
+     Список зашит ниже (HERO_CATS); добавить картинку = загрузить в галерею и дописать строку.
+     Вариант на будущее: собирать список динамически - fetch('/user-storage'), выбрать из HTML
+     секции адреса images.squarespace-cdn.com и разложить по префиксу имени (не реализовано).
+     Три слоя фона: текущий (.kt-on), уходящий (.kt-out) и запасной, в который следующий кадр
+     подгружается заранее. Ещё: секции даётся класс .kt-hero-section, фон переносится
      в начало секции (чтобы лечь под контент на всю площадь), линия под H1 = ширине «Impact.»,
      высота шапки пишется в --kt-header-h. */
   var HERO_SLIDE_MS = 7000;
+  var HERO_CATS = [
+    { label: 'Residential', imgs: [
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/b4264ee0-44da-4f7a-96ca-770b8cbed992/residential-1-2580-PORT-NIGHT--03.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/47f20da8-632c-4056-8fc1-064857db6ec3/residential-2-2663-PORT-NIGHT--04.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/5c321169-fc03-4a1c-a74a-334795844dfc/residential-3-3489-PORT--03.jpg?format=2500w'
+    ] },
+    { label: 'Multifamily', imgs: [
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/3946e51b-3726-4c56-964a-7dffa0fd06c0/multifamily-1-PRT016-STREET-DUSK--01-PEOPLE.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/4f208494-ffe1-4df7-b218-9a5fa3fc8739/multifamily-2-PRT016-COURTYARD-NIGHT--01-2026.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/834d6429-cc41-4cd1-8c10-d48610dc7161/multifamily-3-INV002-AERIAL-NIGHT--04-CARS.jpg?format=2500w'
+    ] },
+    { label: 'Townhouses', imgs: [
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/a889a894-7802-47bd-9e93-2e1e2023356f/townhouses-1-PORT-OLDFORD-SCENE1--01.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/34d00c0a-25f8-4a7f-98e8-0afe2f00e0fb/townhouses-2-PORT-TEJON--08.jpg?format=2500w'
+    ] },
+    { label: 'Urban', imgs: [
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/c0d620a6-0c48-4923-919d-931f797ec4ae/urban-1-PORT-195-Clarkson-EXT--03.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/24467b65-effe-4179-bf28-4e7eb19b1527/urban-2-PORT-CORTELIC-ANGLE--01.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/8ec45fc5-df1b-4b6c-8203-5ab8d2568779/urban-3-2781-exterior-PORT-2021-EXTENDED.jpg?format=2500w'
+    ] },
+    { label: 'Resort', imgs: [
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/2b71e3bc-07cd-4c47-92d1-a75801164156/resort-1-PRT015-INT-MASTER-BATHROOM--01-PEOPLE.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/449d9180-3a50-4501-87e8-d6b4c6d4a782/resort-2-PRT015-EXT-SEAVIEW-A--01.jpg?format=2500w',
+      'https://images.squarespace-cdn.com/content/v1/5ee09ea8e09929041f9192e0/a54a770b-926f-4df6-9b56-dc5cfce7597e/resort-3-PRT015-EXT-AERIAL-A--06.jpg?format=2500w'
+    ] }
+  ];
+  function heroImgAt(step) {
+    var n = HERO_CATS.length, c = HERO_CATS[step % n], round = Math.floor(step / n);
+    return c.imgs[round % c.imgs.length];
+  }
 
   function initHero() {
     var hero = document.getElementById('kt-hero');
@@ -105,19 +143,32 @@
     /* появление элементов */
     requestAnimationFrame(function () { hero.classList.add('kt-in'); });
 
-    /* слайдшоу + счётчик на одном таймере */
-    var slides = bgWrap ? Array.prototype.slice.call(bgWrap.querySelectorAll('.kt-bg')) : [];
-    var bars = Array.prototype.slice.call(hero.querySelectorAll('.kt-count span'));
-    var n = Math.min(slides.length, bars.length);
-    if (!n) return;
-    var cur = 0;
-    function show(i, prev) {
-      slides.forEach(function (s, k) { s.classList.toggle('kt-on', k === i); s.classList.toggle('kt-out', k === prev); });
-      bars.forEach(function (b, k) { b.classList.toggle('kt-on', k === i); });
+    /* слайдшоу + счётчик на одном таймере; слои фона создаются здесь (старые .kt-bg из Code Block убираются) */
+    if (!bgWrap) return;
+    Array.prototype.slice.call(bgWrap.querySelectorAll('.kt-bg')).forEach(function (el) { bgWrap.removeChild(el); });
+    var layers = [];
+    for (var L = 0; L < 3; L++) {
+      var d = document.createElement('div'); d.className = 'kt-bg';
+      bgWrap.insertBefore(d, bgWrap.firstChild); layers.push(d);
     }
-    show(0, -1);
+    var bars = Array.prototype.slice.call(hero.querySelectorAll('.kt-count span'));
+    var n = HERO_CATS.length;
+    if (!n || !bars.length) return;
+    var cur = 0;
+    /* слой L показывает самый поздний шаг s с s % 3 === L из {cur+1, cur, cur-1}: текущий / уходящий / запасной */
+    function show() {
+      for (var L = 0; L < 3; L++) {
+        var step = [cur + 1, cur, cur - 1].filter(function (x) { return x >= 0 && x % 3 === L; })[0];
+        var el = layers[L];
+        if (step !== undefined) el.style.backgroundImage = "url('" + heroImgAt(step) + "')";
+        el.classList.toggle('kt-on', step === cur);
+        el.classList.toggle('kt-out', step === cur - 1);
+      }
+      bars.forEach(function (b, k) { b.classList.toggle('kt-on', k === cur % n); });
+    }
+    show();
     if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    setInterval(function () { var prev = cur; cur = (cur + 1) % n; show(cur, prev); }, HERO_SLIDE_MS);
+    setInterval(function () { cur += 1; show(); }, HERO_SLIDE_MS);
   }
 
   function init() { initCards(); initHero(); }
