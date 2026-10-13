@@ -328,6 +328,26 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 #collection-694bc5d7f347b14a0f0b5dff .sqs-block-content p
 {text-align: left;}
 
+/* Мобильная версия (до 767px) */
+@media (max-width: 767px) {
+  /* скрыть секции: Exteriors и Interiors */
+  section[data-section-id="6ace0c101aa9917fedf119b1"],
+  section[data-section-id="6ace0c5a27b5f778fb2f9bc9"] {display: none !important;}
+
+  /* 3D Floor Plans: галерея-masonry в один столбец (на десктопе - 2, как задано в редакторе).
+     Squarespace расставляет картинки скриптом (absolute + translate) - возвращаем их в обычный поток */
+  section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-wrapper {height: auto !important;}
+  section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-item {
+    position: relative !important;
+    width: 100% !important;
+    transform: none !important;
+    margin-bottom: 20px;
+  }
+  /* высоту картинки скрипт считает под 2 столбца - на всю ширину берём её естественную пропорцию */
+  section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-item-wrapper,
+  section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-item img {height: auto !important;}
+}
+
 /* ===== 21-before-after-slider.css ===== */
 /* Virtual Staging Image Slider */
 
@@ -385,6 +405,24 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
 .slider-handle::after {
   right: -24px;
   border-left: 16px solid #fff;
+}
+
+/* Шире область захвата линии: прозрачные рамки по 20px с каждой стороны (видимая линия - только фон внутри),
+   margin-left сдвигает блок так, что линия остаётся на прежнем месте; стрелки ::before/::after не смещаются */
+.slider-handle {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  background-clip: padding-box;
+  margin-left: -20px;
+  touch-action: none;
+}
+
+/* ===== 30-about.css ===== */
+/* ABOUT */
+
+/* Мобильная версия: фото команды (фон секции) показывать целиком - высота секции по пропорции снимка 780x348 */
+@media (max-width: 767px) {
+  section[data-section-id="6ac3fa69d18a9623acc5a016"] {min-height: calc(100vw * 348 / 780);}
 }
 
 /* ===== 31-career.css ===== */

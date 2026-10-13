@@ -55,3 +55,13 @@
   right: -24px;
   border-left: 16px solid #fff;
 }
+
+/* Шире область захвата линии: прозрачные рамки по 20px с каждой стороны (видимая линия - только фон внутри),
+   margin-left сдвигает блок так, что линия остаётся на прежнем месте; стрелки ::before/::after не смещаются */
+.slider-handle {
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  background-clip: padding-box;
+  margin-left: -20px;
+  touch-action: none;
+}
