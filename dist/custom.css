@@ -286,6 +286,12 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
   /* eyebrow: разделитель-точка скрыт, «Since 2016» - отдельной строкой (точка не повисает в начале или конце строки) */
   #kt-hero .kt-eye .kt-sep {display: none;}
   #kt-hero .kt-eye .kt-since {display: block;}
+  /* eyebrow ближе к шапке; слова H1 крупнее и с воздухом между ними */
+  /* блок на всю высоту видимого экрана (svh - без панели Safari): eyebrow прижат к шапке, остальное внизу, как раньше */
+  .kt-hero-section, .kt-hero-section .content-wrapper {min-height: calc(100svh - var(--kt-header-h, 68px));}
+  #kt-hero .kt-inner {padding-top: 24px; min-height: calc(100svh - var(--kt-header-h, 68px));}
+  #kt-hero .kt-h1 {margin-top: auto;}
+  #kt-hero .kt-h1 {font-size: clamp(44px, 14vw, 60px); gap: .14em;}
 }
 
 /* ===== 20-service-pages.css ===== */
