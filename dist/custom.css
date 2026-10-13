@@ -345,7 +345,7 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
   }
   /* высоту картинки скрипт считает под 2 столбца - на всю ширину берём её естественную пропорцию */
   section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-item-wrapper,
-  section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-item img {height: auto !important;}
+  section[data-section-id="6759996ef8d61a38cb6189fd"] .gallery-masonry-item img {width: 100% !important; height: auto !important;}
 }
 
 /* ===== 21-before-after-slider.css ===== */
