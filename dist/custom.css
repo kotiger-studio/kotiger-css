@@ -134,7 +134,7 @@ section[data-section-id="619ceb63d909022f0418e137"] .content {padding: 4rem 6rem
 section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-top: 0px !important;}
 
 /* ===== 12-home-hero.css ===== */
-/* HOME HERO (2026-10) - "Accuracy. Creativity. Impact."
+/* HOME HERO (2026-10; слова H1 с 2026-11 - "Clarity. Reliability. Expertise.", до того "Accuracy. Creativity. Impact.")
    Разметка живёт в Code Block на главной (#kt-hero), поведение - в js/site.js (модуль HERO).
    Все правила привязаны к #kt-hero и к секции, которой скрипт даёт класс .kt-hero-section.
    Шрифты Archivo и Manrope подключаются в Code Injection -> Header (Google Fonts). */
@@ -267,7 +267,9 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
   #kt-hero .kt-inner {max-width: calc(1440 * var(--u)); padding: calc(56 * var(--u)) calc(60 * var(--u)) calc(52 * var(--u)); gap: calc(28 * var(--u));}
   #kt-hero .kt-eye {font-size: calc(12 * var(--u));}
   #kt-hero .kt-h1 {font-size: calc(118 * var(--u));}
-  #kt-hero .kt-txt {max-width: calc(560 * var(--u)); font-size: calc(19 * var(--u));}
+  /* было 560 (раунд 17): самая длинная расшифровка (Reliability) при 560 занимала 4 строки, блок рос на строку
+     и hero переставал помещаться в экран ноутбука (1366x768, 1440x900); при 640 все четыре текста - не больше 3 строк */
+  #kt-hero .kt-txt {max-width: calc(640 * var(--u)); font-size: calc(19 * var(--u));}
   #kt-hero .kt-txt p {max-width: none;}
   #kt-hero .kt-body {gap: calc(36 * var(--u));}
   #kt-hero .kt-btn {min-width: calc(236 * var(--u)); padding: calc(18 * var(--u)) calc(28 * var(--u)); font-size: calc(13 * var(--u));}
