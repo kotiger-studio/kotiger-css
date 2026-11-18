@@ -288,6 +288,9 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
   /* eyebrow: разделитель-точка скрыт, «Since 2016» - отдельной строкой (точка не повисает в начале или конце строки) */
   #kt-hero .kt-eye .kt-sep {display: none;}
   #kt-hero .kt-eye .kt-since {display: block;}
+  /* раунд 19: дескриптор «White-label Architectural Visualization» длиннее прежнего (39 знаков) - чуть мельче и плотнее,
+     чтобы шёл одной строкой на 360-430 px (на 320 - две строки); было 12px / .3em */
+  #kt-hero .kt-eye {font-size: 11px; letter-spacing: .18em;}
   /* eyebrow ближе к шапке; слова H1 крупнее и с воздухом между ними */
   /* блок на всю высоту видимого экрана (svh - без панели Safari): eyebrow прижат к шапке, остальное внизу, как раньше */
   .kt-hero-section, .kt-hero-section .content-wrapper {min-height: calc(100svh - var(--kt-header-h, 68px));}
