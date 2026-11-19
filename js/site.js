@@ -7,7 +7,11 @@
      Скрипт кладёт в карточку настоящую ссылку <a> поверх всей площади, поэтому работает
      всё как у обычной ссылки: Ctrl/Cmd+клик и колесо мыши - фоновая вкладка, правый клик - меню.
      Ссылка выбирается по заголовку карточки: новая карточка = новая строка в SERVICE_LINKS. */
-  var SERVICES_SECTION = 'section[data-section-id="6ab2a23a65834a7aceb03600"]';
+  /* Секция карточек: /partnership и её копия /partnership-proposal (у дубликата страницы свои id) */
+  var SERVICES_SECTIONS = ['6ab2a23a65834a7aceb03600', '6aff01c1c6f50a45d14b1605'];
+  var SERVICES_CARDS = SERVICES_SECTIONS.map(function (id) {
+    return 'section[data-section-id="' + id + '"] .list-item';
+  }).join(', ');
   var SERVICE_LINKS = {
     'Exteriors': '/services-exteriors',
     'Interiors': '/services-interiors',
@@ -18,7 +22,7 @@
   };
 
   function initCards() {
-    document.querySelectorAll(SERVICES_SECTION + ' .list-item').forEach(function (card) {
+    document.querySelectorAll(SERVICES_CARDS).forEach(function (card) {
       if (card.querySelector('.kt-card-link')) return;
       var titleEl = card.querySelector('.list-item-content__title');
       var title = titleEl ? titleEl.textContent.trim() : '';

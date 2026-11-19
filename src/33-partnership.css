@@ -1,30 +1,47 @@
 /* PARTNERSHIP (kotiger.co/partnership, бывш. For Studios) */
+/* + копия /partnership-proposal (2026-11-19): та же страница без двух форм, отправляется по запросу,
+   вне меню. Duplicate Page дал новые id - селекторы копии стоят в тех же правилах сразу после
+   селекторов оригинала (секции 6aff01c1..., блоки без yui_). Правила формы "Send Me Your Rates"
+   и рядов сетки Pricing к копии не относятся: формы на копии нет, сетка Pricing у копии родная. */
 
 /* Заголовок "Consider us the 3D production unit..." - межстрочный интервал */
 #block-6ab27656d6b5b9850cb1c7e3 h1,
 #block-6ab27656d6b5b9850cb1c7e3 h2,
-#block-6ab27656d6b5b9850cb1c7e3 h3 {
+#block-6ab27656d6b5b9850cb1c7e3 h3,
+#block-9cced52f1403b400ef07 h1,
+#block-9cced52f1403b400ef07 h2,
+#block-9cced52f1403b400ef07 h3 {
   line-height: 1.35 !important;
 }
 
 /* Больше отступ между заголовком и подзаголовком (было 28px, стало ~48px на десктопе): "What you can count on", "Let's talk about your next project" */
 #block-a40dac33d2905d1c6880 h3,
-#block-f9a27d08871a3aa1acab h3 {margin-top: 2.12em;}
+#block-f9a27d08871a3aa1acab h3,
+#block-53d83ff6377b354a52b5 h3,
+#block-a3614372b96ed12cefd2 h3 {margin-top: 2.12em;}
 
 /* Полупрозрачные блоки */
 #block-yui_3_17_2_1_1790612220342_11613,
-#block-b307f076643edcdc7717 {opacity: .5;}
+#block-b307f076643edcdc7717,
+#block-0dd28fa19126e8759977,
+#block-24dca33be9d4f9e4dfad {opacity: .5;}
 
 /* Карточки отзывов и услуг: жёлтый контур по часовой стрелке от нижнего левого угла при наведении */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item {
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item {
   position: relative;
 }
 
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::before,
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::after,
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after {
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item::before,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item::after,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item::before,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item::after {
   content: "";
   position: absolute;
   width: 0;
@@ -37,21 +54,27 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after {
 
 /* Левая сторона + верх: старт из нижнего левого угла */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::before,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before {
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item::before,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item::before {
   bottom: 0;
   left: 0;
 }
 
 /* Правая сторона + низ: старт из верхнего правого угла */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item::after,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after {
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item::after,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item::after {
   top: 0;
   right: 0;
 }
 
 /* 1-2: вверх по левой стороне, затем вправо по верху */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::before,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::before {
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::before,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item:hover::before,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item:hover::before {
   width: 100%;
   height: 100%;
   border-left-color: #FBE38E;
@@ -64,7 +87,9 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::before {
 
 /* 3-4: вниз по правой стороне, затем влево по низу */
 section[data-section-id="6ab506efe70ab43404c365a6"] .list-item:hover::after,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after {
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after,
+section[data-section-id="6aff01c1c6f50a45d14b1614"] .list-item:hover::after,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item:hover::after {
   width: 100%;
   height: 100%;
   border-right-color: #FBE38E;
@@ -77,19 +102,28 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after {
 }
 
 /* Услуги: у карточек нет внутренних отступов, поэтому контур выносим наружу ровно на толщину рамки (6px) - вплотную к картинке */
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before {bottom: -6px; left: -6px;}
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after {top: -6px; right: -6px;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::before,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item::before {bottom: -6px; left: -6px;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item::after,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item::after {top: -6px; right: -6px;}
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::before,
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after {width: calc(100% + 12px); height: calc(100% + 12px);}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover::after,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item:hover::before,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item:hover::after {width: calc(100% + 12px); height: calc(100% + 12px);}
 
 /* Услуги: приближение картинки при наведении - как в блоке услуг на главной */
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item-media-inner {overflow: hidden;}
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item-media-inner img {transition: transform .5s, filter .5s ease-in-out; transform-origin: center center;}
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover .list-item-media-inner img {transform: scale(1.05); filter: brightness(105%);}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item-media-inner,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item-media-inner {overflow: hidden;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item-media-inner img,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item-media-inner img {transition: transform .5s, filter .5s ease-in-out; transform-origin: center center;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:hover .list-item-media-inner img,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item:hover .list-item-media-inner img {transform: scale(1.05); filter: brightness(105%);}
 
 /* Услуги: вся карточка - ссылка. Ссылку-подложку вставляет js/site.js */
-section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link {position: absolute; inset: 0; z-index: 3;}
-section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible {outline: 2px solid #FBE38E; outline-offset: 8px;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .kt-card-link {position: absolute; inset: 0; z-index: 3;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible,
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .kt-card-link:focus-visible {outline: 2px solid #FBE38E; outline-offset: 8px;}
 
 /* Анимированная стрелка вниз (Code Block): три тонких шеврона, "бегущий свет" сверху вниз, при наведении - жёлтый.
    HTML светлый фон:
@@ -118,7 +152,8 @@ section[data-section-id="6ab2a23a65834a7aceb03600"] .kt-card-link:focus-visible 
 
 
 /* Услуги: белый фон карточек (фон карточки включён в Squarespace, цвет задаём здесь) */
-section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
+section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item[data-is-card-enabled="true"],
+section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
 
 /* Отзывы (десктопная и мобильная секции List после якоря #what-our-partners-say):
    подпись "имя - должность - город - Partnership" прижата к низу карточки,
@@ -195,3 +230,17 @@ section#what-our-partners-say ~ section.user-items-list-section .list-item-conte
 #block-yui_3_17_2_1_1791052841990_7602 .form-submission-html {margin-top: 0 !important; padding-top: 0 !important; outline: none !important;}
 #block-yui_3_17_2_1_1791052841990_7602 .form-submission-text {margin-top: 0 !important;} /* с учётом margin-top .form-wrapper: ~50px от вступительной фразы */
 #block-yui_3_17_2_1_1791052841990_7602 .form-submission-text > :first-child {margin-top: 0 !important;}
+
+/* /partnership-proposal, секция "Let's talk": формы нет, а подложка (пустой текстовый блок с фоном
+   f54a54a2...) в редакторе по-прежнему на всю высоту секции - под текстом оставалась пустая подложка.
+   Ужимаем сетку и подложку: под текстом тот же запас, что под формой на оригинале
+   (десктоп - 1 ряд внутри подложки; мобильный - 3 ряда внутри подложки и 1 пустой ряд под ней).
+   Формула высоты ряда - родная Squarespace.
+   Раскладка в редакторе (2026-11-19): десктоп - подложка ряды 1-21, заголовок 2-6, текст 7-8;
+   мобильный - подложка 2-29, заголовок 3-9, текст 10. Если блоки секции сдвинуть - пересчитать. */
+.fe-6aff01c1c6f50a45d14b1633 {grid-template-rows: repeat(14, minmax(24px, auto)) !important;}
+.fe-6aff01c1c6f50a45d14b1633 .fe-block-f54a54a299d4f5966574 {grid-row: 2 / 14 !important;}
+@media (min-width: 768px) {
+  .fe-6aff01c1c6f50a45d14b1633 {grid-template-rows: repeat(9, minmax(calc(var(--container-width) * var(--row-height-scaling-factor)), auto)) !important;}
+  .fe-6aff01c1c6f50a45d14b1633 .fe-block-f54a54a299d4f5966574 {grid-row: 1 / 10 !important;}
+}
