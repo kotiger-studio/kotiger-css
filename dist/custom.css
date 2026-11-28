@@ -494,6 +494,10 @@ section[data-section-id="6b0a2c81a027ef7b813261e1"] .kt-card-link:focus-visible 
   section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item:last-child:nth-child(2n+1) {grid-column: 1 / -1; justify-self: center; width: calc((100% - 30px) / 2); box-sizing: border-box;}
 }
 
+/* Контур карточки (::after, right: -6px) на узком экране выходит за правый край окна на 2-6 px и даёт
+   горизонтальную прокрутку страницы. Обрезаем секцию по горизонтали (clip не создаёт прокрутку). */
+section[data-section-id="6b0a2c81a027ef7b813261e1"] {overflow-x: clip;}
+
 /* ===== 30-about.css ===== */
 /* ABOUT */
 
