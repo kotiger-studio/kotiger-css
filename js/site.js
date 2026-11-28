@@ -18,7 +18,8 @@
     '3D Floor Plans': '/services-3d-floor-plans',
     '3D Site Plans': '/services-3d-site-plans',
     '3D Virtual Tours': '/services-3d-virtual-tours',
-    'CGI + AI Video': '/services-3d-videos'
+    'CGI + AI Video': '/services-3d-videos',
+    'Virtual Staging': '/services-virtual-staging'
   };
 
   function initCards() {

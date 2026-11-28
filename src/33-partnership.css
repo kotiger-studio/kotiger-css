@@ -151,6 +151,17 @@ section[data-section-id="6aff01c1c6f50a45d14b1605"] .kt-card-link:focus-visible 
 }
 
 
+/* Услуги (What we offer): с 2026-11-28 семь карточек (седьмая - Virtual Staging). Сетка Squarespace:
+   от 768 px - 3 колонки, 576-767 px - 2, до 575 px - 1. Одиночную последнюю карточку в ряду ставим
+   по центру, а не к левому краю. Правило срабатывает только когда последняя карточка одна в ряду,
+   поэтому при шести или девяти карточках ничего не меняет. Только /partnership (у копии 6 карточек). */
+@media (min-width: 768px) {
+  section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:last-child:nth-child(3n+1) {grid-column: 2;}
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item:last-child:nth-child(2n+1) {grid-column: 1 / -1; justify-self: center; width: calc((100% - 30px) / 2);}
+}
+
 /* Услуги: белый фон карточек (фон карточки включён в Squarespace, цвет задаём здесь) */
 section[data-section-id="6ab2a23a65834a7aceb03600"] .list-item[data-is-card-enabled="true"],
 section[data-section-id="6aff01c1c6f50a45d14b1605"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
