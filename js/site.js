@@ -9,9 +9,15 @@
      Ссылка выбирается по заголовку карточки: новая карточка = новая строка в SERVICE_LINKS. */
   /* Секция карточек: /partnership и её копия /partnership-proposal (у дубликата страницы свои id) */
   var SERVICES_SECTIONS = ['6ab2a23a65834a7aceb03600', '6aff01c1c6f50a45d14b1605'];
-  var SERVICES_CARDS = SERVICES_SECTIONS.map(function (id) {
-    return 'section[data-section-id="' + id + '"] .list-item';
-  }).join(', ');
+  /* Обзор услуг /3d-rendering-services (с 2026-11-28): такие же карточки, но ссылка открывается в той же вкладке */
+  var OVERVIEW_SECTIONS = ['6b0a2c81a027ef7b813261e1'];
+  function cardsSelector(ids) {
+    return ids.map(function (id) {
+      return 'section[data-section-id="' + id + '"] .list-item';
+    }).join(', ');
+  }
+  var SERVICES_CARDS = cardsSelector(SERVICES_SECTIONS.concat(OVERVIEW_SECTIONS));
+  var OVERVIEW_CARDS = cardsSelector(OVERVIEW_SECTIONS);
   var SERVICE_LINKS = {
     'Exteriors': '/services-exteriors',
     'Interiors': '/services-interiors',
@@ -19,6 +25,7 @@
     '3D Site Plans': '/services-3d-site-plans',
     '3D Virtual Tours': '/services-3d-virtual-tours',
     'CGI + AI Video': '/services-3d-videos',
+    '3D Videos': '/services-3d-videos',
     'Virtual Staging': '/services-virtual-staging'
   };
 
@@ -32,8 +39,10 @@
       var a = document.createElement('a');
       a.className = 'kt-card-link';
       a.href = url;
-      a.target = '_blank';
-      a.rel = 'noopener';
+      if (!card.matches(OVERVIEW_CARDS)) {
+        a.target = '_blank';
+        a.rel = 'noopener';
+      }
       a.setAttribute('aria-label', title);
       card.appendChild(a);
     });

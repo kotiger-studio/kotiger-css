@@ -422,6 +422,78 @@ section[data-section-id="5ee35f04e73436587d91b04a"] .content-wrapper {padding-to
   touch-action: none;
 }
 
+/* ===== 22-services-overview.css ===== */
+/* ОБЗОР УСЛУГ (kotiger.co/3d-rendering-services, с 2026-11-28; кнопка "What we do" в hero главной)
+   Страница собрана из штатных секций: заголовок (копия шапки страницы услуги), List-секция с семью
+   карточками (копия блока What we offer с /partnership) и "We'd love to hear from you!" (копия со страниц услуг).
+   Карточки оформлены как на /partnership (33-partnership.css): белый фон, жёлтый контур и приближение
+   картинки при наведении, вся карточка - ссылка (ссылку-подложку вставляет js/site.js, в той же вкладке).
+   Коллекция страницы 6b0a2b8bf2f3a6541e911b56, секция карточек 6b0a2c81a027ef7b813261e1. */
+
+/* Текст по центру, абзацы - по левому краю (как на страницах услуг, 20-service-pages.css).
+   У абзацев с выравниванием, заданным в редакторе, оно своё (inline-стиль сильнее) */
+#collection-6b0a2b8bf2f3a6541e911b56 .sqs-block-content {text-align: center;}
+#collection-6b0a2b8bf2f3a6541e911b56 .sqs-block-content p {text-align: left;}
+
+/* Карточки: белый фон (фон карточки включён в Squarespace, цвет задаём здесь) */
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item {position: relative;}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item[data-is-card-enabled="true"] {background-color: #fff !important;}
+
+/* Жёлтый контур по часовой стрелке от нижнего левого угла при наведении; контур вынесен наружу
+   на толщину рамки (6px) - вплотную к картинке, как на /partnership */
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item::before,
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 2;
+}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item::before {bottom: -6px; left: -6px;}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item::after {top: -6px; right: -6px;}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item:hover::before {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-left-color: #FBE38E;
+  border-top-color: #FBE38E;
+  transition:
+    height 0.25s ease-out,
+    border-top-color 0s 0.25s,
+    width 0.25s ease-out 0.25s;
+}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item:hover::after {
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
+  border-right-color: #FBE38E;
+  border-bottom-color: #FBE38E;
+  transition:
+    border-right-color 0s 0.5s,
+    height 0.25s ease-out 0.5s,
+    border-bottom-color 0s 0.75s,
+    width 0.25s ease-out 0.75s;
+}
+
+/* Приближение картинки при наведении */
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item-media-inner {overflow: hidden;}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item-media-inner img {transition: transform .5s, filter .5s ease-in-out; transform-origin: center center;}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item:hover .list-item-media-inner img {transform: scale(1.05); filter: brightness(105%);}
+
+/* Вся карточка - ссылка */
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .kt-card-link {position: absolute; inset: 0; z-index: 3;}
+section[data-section-id="6b0a2c81a027ef7b813261e1"] .kt-card-link:focus-visible {outline: 2px solid #FBE38E; outline-offset: 8px;}
+
+/* Семь карточек: одиночная последняя карточка в ряду - по центру (сетка Squarespace:
+   от 768 px - 3 колонки, 576-767 px - 2, до 575 px - 1) */
+@media (min-width: 768px) {
+  section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item:last-child:nth-child(3n+1) {grid-column: 2;}
+}
+@media (min-width: 576px) and (max-width: 767px) {
+  section[data-section-id="6b0a2c81a027ef7b813261e1"] .list-item:last-child:nth-child(2n+1) {grid-column: 1 / -1; justify-self: center; width: calc((100% - 30px) / 2); box-sizing: border-box;}
+}
+
 /* ===== 30-about.css ===== */
 /* ABOUT */
 
